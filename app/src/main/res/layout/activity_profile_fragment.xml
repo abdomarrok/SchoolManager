@@ -1,0 +1,118 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/intro"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/school_color"
+    app:layout_anchorGravity="center|center_horizontal|center_vertical"
+    tools:context=".Activities.ProfileFragment">
+
+    <View
+        android:id="@+id/rectangle1"
+        android:layout_width="141dp"
+        android:layout_height="213dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginLeft="272dp"
+        android:layout_marginTop="-36dp"
+        android:layout_marginEnd="-2dp"
+        android:background="@drawable/rectangle"
+        android:rotation="90" />
+
+    <TextView
+        android:id="@+id/profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="46dp"
+        android:gravity="center"
+        android:text="@string/profile"
+        android:textAppearance="@style/dashboard" />
+    <TextView
+        android:id="@+id/profile_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="52dp"
+        android:layout_toRightOf="@+id/profile"
+        android:text="@string/id_number"
+        android:textAppearance="@style/total_value" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/avatar"
+        android:layout_width="113dp"
+        android:layout_height="116dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="146dp"
+        android:layout_marginTop="87dp"
+        android:src="@color/white"
+        app:shapeAppearanceOverlay="@style/dashboardavatar" />
+
+    <TextView
+        android:id="@+id/student_name"
+        android:layout_width="197dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/avatar"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="@string/studentName"
+        android:textSize="20sp" />
+
+    <RelativeLayout
+        android:id="@+id/rectangle3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="290dp"
+        android:background="@drawable/rectangle3">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingTop="50dp">
+
+            <TextView
+                android:id="@+id/classes"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:drawableRight="@drawable/blackarrow"
+                android:drawableBottom="@drawable/line__"
+                android:gravity="center_vertical"
+                android:text="@string/classes_str"
+                android:textColor="@color/school_color"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/finance"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="15dp"
+                android:layout_weight="1"
+                android:drawableRight="@drawable/blackarrow"
+                android:drawableBottom="@drawable/line__"
+                android:gravity="center_vertical"
+                android:text="@string/finance"
+                android:textColor="@color/school_color"
+                android:textSize="25sp" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/rectangle"
+        android:layout_width="304.75dp"
+        android:layout_height="303.88dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="72.44dp"
+        android:background="@drawable/rectangle" />
+
+
+</RelativeLayout>

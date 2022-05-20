@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Intro -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/intro"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/school_color"
+    android:clipToOutline="true"
+    app:layout_anchorGravity="center|center_horizontal|center_vertical">
+
+
+    <View
+        android:id="@+id/rectangle"
+        android:layout_width="304.75dp"
+        android:layout_height="303.88dp"
+        android:layout_marginTop="72.44dp"
+        android:background="@drawable/rectangle" />
+
+    <View
+        android:id="@+id/rectangle1"
+        android:layout_width="200.22dp"
+        android:layout_height="182.95dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="290dp"
+        android:layout_marginTop="-30dp"
+        android:background="@drawable/rectangle"
+        android:rotation="90" />
+
+    <View
+        android:id="@+id/group_2"
+        android:layout_width="117dp"
+        android:layout_height="66.06dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="41dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="69dp"
+        android:background="@drawable/underlogo" />
+
+    <TextView
+        android:id="@+id/register"
+        android:layout_width="316dp"
+        android:layout_height="60dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="41dp"
+        android:layout_marginTop="143dp"
+        android:text="@string/register"
+        android:textAppearance="@style/school_mana" />
+
+    <TextView
+        android:id="@+id/you_re_just"
+        android:layout_width="288dp"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="44dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="211dp"
+        android:text="You’re just a few steps away, just provide some details below to register"
+        android:textAppearance="@style/the_best_sc" />
+
+    <RelativeLayout
+        android:id="@+id/rectangle3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="298dp"
+        android:layout_marginBottom="2dp"
+        android:background="@drawable/rectangle3">
+        <!-- Rectangle 4 -->
+        <LinearLayout
+            android:layout_width="283dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/rectangle4_email"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/rectangle4"
+                android:drawableLeft="@drawable/mailvector"
+                android:gravity="left|center"
+                android:paddingLeft="10dp"
+                android:text="email"
+                android:textSize="25sp" />
+
+            <EditText
+                android:id="@+id/rectangle4_username"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/rectangle4"
+                android:drawableLeft="@drawable/usernamevector"
+                android:gravity="left|center"
+                android:paddingLeft="10dp"
+                android:text="username"
+                android:textSize="25sp" />
+
+            <EditText
+                android:id="@+id/rectangle4_password"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/rectangle4"
+                android:drawableLeft="@drawable/passwordvector"
+                android:gravity="left|center"
+                android:paddingLeft="10dp"
+                android:inputType="textPassword"
+                android:text="password"
+                android:textSize="25sp" />
+
+            <EditText
+                android:id="@+id/rectangle4_confirm_password"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/rectangle4"
+                android:drawableLeft="@drawable/passwordvector"
+                android:gravity="left|center"
+                android:paddingLeft="10dp"
+                android:inputType="textPassword"
+                android:text="password"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/btnRegister"
+                android:layout_width="283dp"
+                android:layout_height="58dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/rectangle5"
+                android:text="Register"
+                app:backgroundTint="@null" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/already_hav"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="14dp"
+            android:gravity="center_vertical"
+            android:text="@string/already_hav"
+            android:textAppearance="@style/already_hav" />
+    </RelativeLayout>
+
+
+</RelativeLayout>

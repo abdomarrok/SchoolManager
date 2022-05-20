@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/student_txt"
+        android:icon="@drawable/ic_baseline_list_24"
+        android:gravity="center"
+        android:text="@string/students"
+        android:textColor="@color/school_color"
+        android:title=""
+        />
+    <item android:id="@+id/home_txt"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:gravity="center"
+        android:text="@string/home"
+        android:textColor="@color/school_color"
+        android:title="" />
+    <item
+        android:id="@+id/profile_txt"
+    android:layout_width="0dp"
+    android:layout_weight="1"
+    android:layout_height="match_parent"
+    android:icon="@drawable/ic_baseline_person_outline_24"
+    android:gravity="center"
+    android:text="@string/profile"
+    android:textColor="@color/school_color"
+        android:title="" />
+</menu>
