@@ -4,22 +4,30 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/pc/MySchool/app/src/main/res/drawable/blackarrow.xml" value="0.1" />
+        <entry key="..\:/Users/pc/MySchool/app/src/main/res/drawable/rectangle1.xml" value="0.1825" />
+        <entry key="..\:/Users/pc/MySchool/app/src/main/res/drawable/rectangle2.xml" value="0.1825" />
+        <entry key="..\:/Users/pc/MySchool/app/src/main/res/drawable/rectangle4.xml" value="0.2485" />
         <entry key="..\:/Users/pc/MySchool/app/src/main/res/drawable/rectangle5.xml" value="0.1715" />
         <entry key="..\:/Users/pc/MySchool/app/src/main/res/layout/activity_add_prof_dialog.xml" value="0.2359375" />
         <entry key="..\:/Users/pc/MySchool/app/src/main/res/layout/activity_add_student_dialog.xml" value="0.25" />
+        <entry key="..\:/Users/pc/MySchool/app/src/main/res/layout/activity_add_subject_dialog.xml" value="0.2359375" />
+        <entry key="..\:/Users/pc/MySchool/app/src/main/res/layout/activity_classes_fragment.xml" value="0.25" />
         <entry key="..\:/Users/pc/MySchool/app/src/main/res/layout/activity_dashboard.xml" value="0.25" />
         <entry key="..\:/Users/pc/MySchool/app/src/main/res/layout/activity_home_fragment.xml" value="0.25" />
         <entry key="..\:/Users/pc/MySchool/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Users/pc/MySchool/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/pc/MySchool/app/src/main/res/layout/activity_prof_fragment.xml" value="0.25" />
         <entry key="..\:/Users/pc/MySchool/app/src/main/res/layout/activity_profile_fragment.xml" value="0.25" />
+        <entry key="..\:/Users/pc/MySchool/app/src/main/res/layout/activity_profile_user.xml" value="0.25" />
         <entry key="..\:/Users/pc/MySchool/app/src/main/res/layout/activity_registration.xml" value="0.25" />
         <entry key="..\:/Users/pc/MySchool/app/src/main/res/layout/activity_student_fragment.xml" value="0.25" />
+        <entry key="..\:/Users/pc/MySchool/app/src/main/res/layout/activity_subject_fragment.xml" value="0.25" />
         <entry key="..\:/Users/pc/MySchool/app/src/main/res/layout/dashboard_activity.xml" value="0.2507836990595611" />
         <entry key="..\:/Users/pc/MySchool/app/src/main/res/layout/dashboard_fragment.xml" value="0.2507836990595611" />
         <entry key="..\:/Users/pc/MySchool/app/src/main/res/layout/fragment_blank.xml" value="0.2359375" />
         <entry key="..\:/Users/pc/MySchool/app/src/main/res/layout/prof_item.xml" value="0.20512820512820512" />
         <entry key="..\:/Users/pc/MySchool/app/src/main/res/layout/student_item.xml" value="0.24895833333333334" />
+        <entry key="..\:/Users/pc/MySchool/app/src/main/res/layout/subject_item.xml" value="0.25" />
         <entry key="..\:/Users/pc/MySchool/app/src/main/res/menu/my_navigation_items.xml" value="0.25" />
       </map>
     </option>

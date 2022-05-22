@@ -21,7 +21,7 @@ public interface SubjectDao {
     @Update
     void update(Subject subject);
     @Query("SELECT * FROM subject")
-    List<Subject> getAllProf();
+    List<Subject> getAllSubject();
 
     @Query("SELECT *FROM subject WHERE subject_id=:id")
     Subject getSubjectById(int id);

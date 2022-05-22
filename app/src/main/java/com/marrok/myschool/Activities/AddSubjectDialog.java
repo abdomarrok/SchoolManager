@@ -18,7 +18,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.marrok.myschool.Database.SchoolDB;
-import com.marrok.myschool.Entities.Prof;
+import com.marrok.myschool.Entities.Subject;
 import com.marrok.myschool.R;
 
 import java.text.SimpleDateFormat;
@@ -26,34 +26,32 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public class AddProfDialog extends DialogFragment {
+public class AddSubjectDialog extends DialogFragment {
     private SchoolDB schoolDB;
-    private List<Prof> prof;
-    private EditText prof_firstTxtName, prof_lastTxtName,prof_img_Url,prof_email,prof_phone;
+    private List<Subject> subjects;
+    private EditText subject_name,subject_img_Url;
     private TextView txtUserName, txtWarning;
-    private Button btnAddProf;
+    private Button btnAddSubject;
 
-    public interface AddProf {
-        void onAddProfResult (Prof prof);
+    public interface AddSubject {
+        void onAddSubjectResult (Subject subject);
     }
 
-    private AddProf addProf;
+    private AddSubjectDialog.AddSubject addSubject;
 
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        View view = getActivity().getLayoutInflater().inflate(R.layout.activity_add_prof_dialog, null);
+        View view = getActivity().getLayoutInflater().inflate(R.layout.activity_add_subject_dialog, null);
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity())
-                .setTitle("Add Teacher")
+                .setTitle("Add Subject")
                 .setView(view);
-
         initViews(view);
-        /** 1  get  student names */
         Bundle bundle = getArguments();
-        btnAddProf.setOnClickListener(new View.OnClickListener() {
+        btnAddSubject.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addProf();
+                addSubject();
             }
         });
         return builder.create();
@@ -61,36 +59,31 @@ public class AddProfDialog extends DialogFragment {
 
     private void initViews(View view) {
         Log.d(TAG, "initViews: started");
-        prof_firstTxtName = view.findViewById(R.id.prof_firstTxtName);
-        prof_lastTxtName =  view.findViewById(R.id.prof_lastTxtName);
-        prof_email=view.findViewById(R.id.prof_email);
-        prof_phone=view.findViewById(R.id.prof_phone);
-        prof_img_Url= view.findViewById(R.id.prof_img_URL);
+        subject_name = view.findViewById(R.id.subjectName_dialog);
+        subject_img_Url =  view.findViewById(R.id.subject_img_url);
         txtUserName =  view.findViewById(R.id.userName);
         txtWarning =  view.findViewById(R.id.txtWarning);
-        btnAddProf = view.findViewById(R.id.btnAddProf);
+        btnAddSubject = view.findViewById(R.id.btnAddSubject);
     }
 
-    private void addProf () {
-        Log.d(TAG, "addProf:  started");
+    private void addSubject () {
+        Log.d(TAG, "addSubject: started");
         if (validateData()) {
-            String firstname = prof_firstTxtName.getText().toString();
-            String lastname = prof_lastTxtName.getText().toString();
-            String email=prof_email.getText().toString();
-            String phone_number=prof_phone.getText().toString();
-            String img_URL=prof_img_Url.getText().toString();
+            String subjectname = subject_name.getText().toString();
+            String img_URL=subject_img_Url.getText().toString();
             String date = getCurrentDate();
-            Prof prof1 = new Prof(firstname,lastname,email,phone_number,img_URL);
+            Subject subject1=new Subject(subjectname,img_URL);
+
 
             try {
 
                 schoolDB= SchoolDB.getInstance(getActivity());
                 if(schoolDB!=null){
-                    Log.d(TAG, "onAddProfResult: prof"+prof1+" added");
-                    try {
-                        schoolDB.profDao().insert(prof1);
+                    Log.d(TAG, "onAddSubjectResult: subject"+subject1+" added");
+                   try {
+                        schoolDB.subjectDao().insert(subject1);
                         FragmentTransaction transaction =getActivity().getSupportFragmentManager().beginTransaction();
-                        transaction.replace(R.id.fragment_container, new ProfFragment());
+                        transaction.replace(R.id.fragment_container, new SubjectFragment());
                         transaction.commit();
                     }catch (SQLException e){
                         e.printStackTrace();
@@ -114,10 +107,10 @@ public class AddProfDialog extends DialogFragment {
     }
     private boolean validateData () {
         Log.d(TAG, "validateData: started");
-        if (prof_firstTxtName.getText().toString().equals("")) {
+        if (subject_name.getText().toString().equals("")) {
             return false;
         }
-        if (prof_lastTxtName.getText().toString().equals("")) {
+        if (subject_img_Url.getText().toString().equals("")) {
             return false;
         }
         return true;

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/intro"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/school_color"
+    android:clipToOutline="true"
+    app:layout_anchorGravity="center|center_horizontal|center_vertical"
+    tools:context=".Activities.ClassesFragment">
+
+
+    <TextView
+        android:id="@+id/classes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="77dp"
+        android:layout_marginTop="19dp"
+        android:gravity="top"
+        android:text="@string/classes_str"
+        android:textAppearance="@style/dashboard" />
+
+    <LinearLayout
+        android:id="@+id/top_layout"
+        android:layout_marginTop="120dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+       >
+        <TextView
+            android:id="@+id/total"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@string/total"
+            android:textAppearance="@style/total" />
+
+        <TextView
+            android:id="@+id/total_value"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/total"
+            android:layout_alignBottom="@+id/total"
+            android:text="0"
+            android:textAppearance="@style/total_value"
+            />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/rectangle"
+        android:layout_width="304.75dp"
+        android:layout_height="303.88dp"
+        android:layout_marginTop="72.44dp"
+        android:background="@drawable/rectangle" />
+
+    <View
+        android:id="@+id/rectangle1"
+        android:layout_width="200.22dp"
+        android:layout_height="182.95dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="290dp"
+        android:layout_marginTop="-30dp"
+        android:background="@drawable/rectangle"
+        android:rotation="90" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/classes_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/top_layout">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <LinearLayout
+        android:id="@+id/spinners_layout"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/classes_recycler_view"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal"
+        android:background="@drawable/rectangle1">
+
+        <Spinner
+            android:id="@+id/spinner_prof"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            />
+
+        <Spinner
+            android:layout_weight="1"
+            android:id="@+id/spinner_subject"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+
+            />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/addClass"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinners_layout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="add class" />
+
+
+</RelativeLayout>

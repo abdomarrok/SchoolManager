@@ -47,8 +47,9 @@ public class DashboardActivity extends AppCompatActivity {
                         transaction.commit();
                         break;
                     case R.id.profile_txt:
-                        transaction.replace(R.id.fragment_container, new ProfileFragment());
-                        transaction.commit();
+                        //todo : send user information
+                        Intent intent =new Intent(DashboardActivity.this,ProfileUserActivity.class);
+                            startActivity(intent);
                         break;
                     default:
                         break;

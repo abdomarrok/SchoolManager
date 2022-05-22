@@ -56,6 +56,7 @@
         android:layout_marginTop="224dp"
         android:gravity="center_horizontal|center_vertical"
         android:text="@string/manager_nam"
+        android:textColor="@color/white"
         android:textSize="20sp" />
 
     <RelativeLayout
@@ -99,6 +100,17 @@
                 android:textColor="@color/school_color"
                 android:textSize="25sp" />
 
+            <TextView
+                android:id="@+id/subject_id"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:drawableRight="@drawable/blackarrow"
+                android:drawableBottom="@drawable/line__"
+                android:gravity="center_vertical"
+                android:text="@string/subject"
+                android:textColor="@color/school_color"
+                android:textSize="25sp" />
             <TextView
                 android:id="@+id/class_id"
                 android:layout_width="match_parent"

@@ -35,4 +35,12 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="Profs">Teachers</string>
+    <string name="Name">name</string>
+    <string name="phone">xx.xx.xx.xx</string>
+    <string name="username">Username</string>
+    <string name="user">User</string>
+    <string name="setting">Setting</string>
+    <string name="permissions">Permissions</string>
+    <string name="subject">Subject</string>
+    <string name="subject_id">subject id</string>
 </resources>

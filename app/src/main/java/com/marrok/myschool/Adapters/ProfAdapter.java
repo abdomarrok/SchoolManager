@@ -6,6 +6,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +23,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.marrok.myschool.Activities.HomeFragment;
 import com.marrok.myschool.Activities.ProfFragment;
 import com.marrok.myschool.Activities.ProfileFragment;
 import com.marrok.myschool.Database.SchoolDB;
@@ -63,8 +65,16 @@ public class ProfAdapter  extends  RecyclerView.Adapter<ProfAdapter.ViewHolder>{
         holder.parent_cardView.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-               //todo :go to profile
 
+                //send data
+                ProfileFragment fragment =new ProfileFragment();
+                Bundle arguments = new Bundle();
+                arguments.putInt("prof_id",profs.get(position).getProf_id());
+                fragment.setArguments(arguments);
+                //todo :go to profile
+                FragmentTransaction transaction = ((FragmentActivity)context).getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragment_container, fragment);
+                transaction.commit();
                 Toast.makeText(context, "go to profile", Toast.LENGTH_SHORT).show();
             }
         });
@@ -79,7 +89,6 @@ public class ProfAdapter  extends  RecyclerView.Adapter<ProfAdapter.ViewHolder>{
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 try{
-                                 // todo :delete prof
                                     Log.d(TAG, "onClick: "+(profs.get(position).getLastName()));
                                     schoolDB= SchoolDB.getInstance(context);
                                     if(schoolDB!=null){
