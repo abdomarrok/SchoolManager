@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">testSchool</string>
+
     <string name="school_mana">School Manager</string>
     <string name="thebest">The best School </string>
     <string name="get_started">Get Started</string>
@@ -34,4 +34,5 @@
     <string name="id_number">0</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Profs">Teachers</string>
 </resources>
