@@ -12,11 +12,11 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 import com.marrok.myschool.Dao.ClassDao;
 import com.marrok.myschool.Dao.ProfDao;
 import com.marrok.myschool.Dao.SubjectDao;
-import com.marrok.myschool.Entities.Class;
 import com.marrok.myschool.Entities.Prof;
 import com.marrok.myschool.Entities.Subject;
+import com.marrok.myschool.Entities.aClass;
 
-@Database(entities = {Prof.class, Subject.class,Class.class},version = 1)
+@Database(entities = {Prof.class, Subject.class, aClass.class},version = 1)
 public abstract class SchoolDB extends RoomDatabase {
     public abstract ProfDao profDao();
     public abstract SubjectDao subjectDao();
@@ -30,32 +30,11 @@ public abstract class SchoolDB extends RoomDatabase {
                             SchoolDB.class, "SchoolDB")
                     .fallbackToDestructiveMigration()
                     .allowMainThreadQueries()
-                    .addCallback(initialCallBack)
                     .build();
         }
         return instance;
     }
-    private static RoomDatabase.Callback initialCallBack=new Callback() {
-        @Override
-        public void onCreate(@NonNull SupportSQLiteDatabase db) {
-            super.onCreate(db);
-            new InitialAsyncTask(instance).execute();
-        }
 
 
-    };
 
-    private static class InitialAsyncTask extends AsyncTask<Void,Void,Void>{
-        private ProfDao profDao;
-
-        public InitialAsyncTask(SchoolDB DB) {
-            this.profDao = DB.profDao();
-        }
-
-        @Override
-        protected Void doInBackground(Void... voids) {
-
-            return null;
-        }
-    }
 }

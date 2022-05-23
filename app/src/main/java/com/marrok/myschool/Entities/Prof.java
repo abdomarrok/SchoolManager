@@ -2,12 +2,17 @@ package com.marrok.myschool.Entities;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.ForeignKey;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "prof")
+@Entity(tableName = "prof",
+        indices = {@Index("first_name")})
 public class Prof {
     @PrimaryKey(autoGenerate = true)
     private int prof_id;
+    @ColumnInfo(name = "class_id")
+    private int Class_id;
     @ColumnInfo(name = "first_name")
     private String firstName;
     @ColumnInfo(name = "last_name")
@@ -22,22 +27,6 @@ public class Prof {
         this.lastName = lastName;
         this.email = email;
         this.phone_number = phone_number;
-        this.imgUrl = imgUrl;
-    }
-
-    public int getProf_id() {
-        return prof_id;
-    }
-
-    public void setProf_id(int prof_id) {
-        this.prof_id = prof_id;
-    }
-
-    public String getImgUrl() {
-        return imgUrl;
-    }
-
-    public void setImgUrl(String imgUrl) {
         this.imgUrl = imgUrl;
     }
 
@@ -71,5 +60,29 @@ public class Prof {
 
     public void setPhone_number(String phone_number) {
         this.phone_number = phone_number;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
+
+    public int getProf_id() {
+        return prof_id;
+    }
+
+    public void setProf_id(int prof_id) {
+        this.prof_id = prof_id;
+    }
+
+    public int getClass_id() {
+        return Class_id;
+    }
+
+    public void setClass_id(int aClass_id) {
+        this.Class_id = aClass_id;
     }
 }

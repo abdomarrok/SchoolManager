@@ -82,6 +82,7 @@ public class AddProfDialog extends DialogFragment {
             String date = getCurrentDate();
             Prof prof1 = new Prof(firstname,lastname,email,phone_number,img_URL);
 
+
             try {
 
                 schoolDB= SchoolDB.getInstance(getActivity());

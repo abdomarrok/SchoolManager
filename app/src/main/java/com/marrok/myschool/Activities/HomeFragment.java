@@ -27,7 +27,7 @@ public class HomeFragment extends Fragment {
         FragmentTransaction transaction =getActivity().getSupportFragmentManager().beginTransaction();
         teachers_TXT=view.findViewById(R.id.teacher);
         subject_TXT=view.findViewById(R.id.subject_id);
-        class_TXT=view.findViewById(R.id.class_id);
+        class_TXT=view.findViewById(R.id.class_id_txt);
         teachers_TXT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -45,7 +45,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        class_TXT.setOnClickListener(new View.OnClickListener() {
+       class_TXT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getActivity(), "clicked", Toast.LENGTH_SHORT).show();

@@ -3,6 +3,7 @@ package com.marrok.myschool.Dao;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
+import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
@@ -12,7 +13,8 @@ import java.util.List;
 
 @Dao
 public interface ProfDao {
-    @Insert
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(Prof prof);
 
     @Delete
@@ -28,4 +30,7 @@ public interface ProfDao {
 
     @Query("SELECT *FROM prof WHERE prof_id=:id")
     Prof getProfById(int id);
+
+    @Query("SELECT prof_id FROM prof WHERE first_name||:space||last_name=:name")
+    int getProfIdByName(String name,String space);
 }

@@ -104,13 +104,13 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/addClass"
+        android:id="@+id/createClass"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/spinners_layout"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
-        android:text="add class" />
+        android:text="Create class" />
 
 
 </RelativeLayout>
