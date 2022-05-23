@@ -8,6 +8,7 @@ import androidx.room.Update;
 
 import com.marrok.myschool.Entities.Subject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Dao
@@ -25,4 +26,5 @@ public interface SubjectDao {
 
     @Query("SELECT *FROM subject WHERE subject_id=:id")
     Subject getSubjectById(int id);
+
 }
