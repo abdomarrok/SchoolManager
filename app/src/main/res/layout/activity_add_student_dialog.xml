@@ -40,8 +40,43 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/student_phone_number"
+        android:hint="Phone number"
+        android:gravity="start"
+        android:layout_marginTop="10dp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/parent_phone_number"
+        android:hint="Parent Phone number"
+        android:gravity="start"
+        android:layout_marginTop="10dp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/student_email"
+        android:hint="Email"
+        android:gravity="start"
+        android:layout_marginTop="10dp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/student_img_URL"
         android:hint="image url"
+        android:gravity="start"
+        android:layout_marginTop="10dp"/>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/class_spinner"
+        android:background="@drawable/rectangle1"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/class_price"
+        android:hint="price DA"
         android:gravity="start"
         android:layout_marginTop="10dp"/>
 

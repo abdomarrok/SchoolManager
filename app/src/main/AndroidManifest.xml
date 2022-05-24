@@ -7,9 +7,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/mainlogo"
         android:label="@string/school_mana"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/mainlogo"
         android:supportsRtl="true"
         android:theme="@style/Theme.Material3.DayNight.NoActionBar">
         <activity

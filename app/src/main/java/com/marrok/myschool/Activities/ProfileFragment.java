@@ -21,11 +21,13 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.marrok.myschool.Database.SchoolDB;
 import com.marrok.myschool.Entities.Prof;
+import com.marrok.myschool.Entities.Student;
 import com.marrok.myschool.R;
 
 public class ProfileFragment extends Fragment {
     SchoolDB schoolDB;
     Prof prof;
+    Student student;
     TextView name,email,phone,classes,finance,profile_id;
     ImageView avatar;
 
@@ -38,7 +40,7 @@ public class ProfileFragment extends Fragment {
         finance=v.findViewById(R.id.finance);
         avatar=v.findViewById(R.id.avatar);
     }
-    private void initData() {
+    private void initprofData() {
         Log.d(TAG, "initData: started");
         profile_id.setText(String.valueOf(prof.getProf_id()));
         name.setText(prof.getFirstName()+" "+prof.getLastName());
@@ -50,6 +52,17 @@ public class ProfileFragment extends Fragment {
                 .into(avatar);
         
     }
+    private void initstudentData() {
+        Log.d(TAG, "initData: started");
+        profile_id.setText(String.valueOf(student.getStudent_id()));
+        name.setText( student.getFirstName()+" "+student.getLastName());
+        email.setText(student.getEmail());
+        phone.setText(student.getPhoneNumber());
+        Glide.with(this)
+                .asBitmap()
+                .load(student.getImgUrl())
+                .into(avatar);
+    }
 
     @Nullable
     @Override
@@ -59,13 +72,13 @@ public class ProfileFragment extends Fragment {
         initView(view);
         Bundle arguments = getArguments();
           prof_id = arguments.getInt("prof_id");
+          student_id=arguments.getInt("student_id");
         if(arguments.getInt("prof_id")!=0){
             try {
                 schoolDB = SchoolDB.getInstance(getActivity());
                 if (schoolDB != null) {
                     try {
                         prof = schoolDB.profDao().getProfById(prof_id);
-
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
@@ -75,8 +88,27 @@ public class ProfileFragment extends Fragment {
 
             Log.d(TAG, "onCreateView: prof id"+prof.getLastName());
         }
+        if(arguments.getInt("student_id")!=0){
+            try {
+                schoolDB = SchoolDB.getInstance(getActivity());
+                if (schoolDB != null) {
+                    try {
+                        student=schoolDB.studentDao().getStudentById(student_id);
+
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }catch (SQLException e){
+            }
+
+            Log.d(TAG, "onCreateView: student id"+student.getFirstName());
+        }
         if(prof!=null){
-            initData();
+            initprofData();
+        }
+        if(student!=null){
+            initstudentData();
         }
 
         return view;

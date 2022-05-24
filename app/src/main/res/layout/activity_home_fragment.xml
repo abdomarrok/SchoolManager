@@ -76,39 +76,26 @@
             android:orientation="vertical"
             android:paddingLeft="20dp"
             android:paddingTop="50dp">
-
-            <TextView
-                android:id="@+id/home"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:drawableRight="@drawable/blackarrow"
-                android:drawableBottom="@drawable/line__"
-                android:gravity="center_vertical"
-                android:text="@string/home"
-                android:textColor="@color/school_color"
-                android:textSize="25sp" />
-
-            <TextView
-                android:id="@+id/attendance"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="15dp"
-                android:drawableRight="@drawable/blackarrow"
-                android:drawableBottom="@drawable/line__"
-                android:gravity="center_vertical"
-                android:text="@string/attendance"
-                android:textColor="@color/school_color"
-                android:textSize="25sp" />
-
             <TextView
                 android:id="@+id/subject_id"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="15dp"
+
                 android:drawableRight="@drawable/blackarrow"
                 android:drawableBottom="@drawable/line__"
                 android:gravity="center_vertical"
                 android:text="@string/subject"
+                android:textColor="@color/school_color"
+                android:textSize="25sp" />
+            <TextView
+                android:id="@+id/teacher"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:drawableRight="@drawable/blackarrow"
+                android:drawableBottom="@drawable/line__"
+                android:gravity="center_vertical"
+                android:text="@string/teachers"
                 android:textColor="@color/school_color"
                 android:textSize="25sp" />
             <TextView
@@ -122,9 +109,20 @@
                 android:text="@string/class_str"
                 android:textColor="@color/school_color"
                 android:textSize="25sp" />
+            <TextView
+                android:id="@+id/enrollment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawableRight="@drawable/blackarrow"
+                android:drawableBottom="@drawable/line__"
+                android:layout_marginTop="15dp"
+                android:gravity="center_vertical"
+                android:text="@string/enrollment"
+                android:textColor="@color/school_color"
+                android:textSize="25sp" />
 
             <TextView
-                android:id="@+id/student"
+                android:id="@+id/student_txt2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="15dp"
@@ -135,17 +133,6 @@
                 android:textColor="@color/school_color"
                 android:textSize="25sp" />
 
-            <TextView
-                android:id="@+id/teacher"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="15dp"
-                android:drawableRight="@drawable/blackarrow"
-                android:drawableBottom="@drawable/line__"
-                android:gravity="center_vertical"
-                android:text="@string/teachers"
-                android:textColor="@color/school_color"
-                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/finance"
@@ -158,7 +145,17 @@
                 android:text="@string/finance"
                 android:textColor="@color/school_color"
                 android:textSize="25sp" />
-
+            <TextView
+                android:id="@+id/attendance"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:drawableRight="@drawable/blackarrow"
+                android:drawableBottom="@drawable/line__"
+                android:gravity="center_vertical"
+                android:text="@string/attendance"
+                android:textColor="@color/school_color"
+                android:textSize="25sp" />
             <TextView
                 android:id="@+id/signout"
                 android:layout_width="match_parent"

@@ -21,7 +21,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.marrok.myschool.Adapters.ProfAdapter;
 import com.marrok.myschool.Database.SchoolDB;
-import com.marrok.myschool.Dialog.AddStudentDialog;
 import com.marrok.myschool.Entities.Prof;
 import com.marrok.myschool.R;
 

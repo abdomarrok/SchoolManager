@@ -43,4 +43,5 @@
     <string name="permissions">Permissions</string>
     <string name="subject">Subject</string>
     <string name="subject_id">subject id</string>
+    <string name="enrollment">Enrollment</string>
 </resources>
