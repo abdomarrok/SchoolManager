@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -28,10 +29,16 @@ public class ProfileFragment extends Fragment {
     SchoolDB schoolDB;
     Prof prof;
     Student student;
+    RelativeLayout studentLayout;
+    TextView parentPhone,Credit,studentStatus;
     TextView name,email,phone,classes,finance,profile_id;
     ImageView avatar;
 
     private void initView(View v) {
+        studentLayout=v.findViewById(R.id.student_layout);
+        parentPhone=v.findViewById(R.id.parent_phone);
+        Credit=v.findViewById(R.id.credit_student);
+        studentStatus=v.findViewById(R.id.status_student);
         profile_id=v.findViewById(R.id.profile_id);
         name=v.findViewById(R.id.name);
         email=v.findViewById(R.id.email);
@@ -42,10 +49,12 @@ public class ProfileFragment extends Fragment {
     }
     private void initprofData() {
         Log.d(TAG, "initData: started");
+        studentLayout.setVisibility(View.GONE);
         profile_id.setText(String.valueOf(prof.getProf_id()));
         name.setText(prof.getFirstName()+" "+prof.getLastName());
         email.setText(prof.getEmail());
         phone.setText(prof.getPhone_number());
+
         Glide.with(this)
                 .asBitmap()
                 .load(prof.getImgUrl())
@@ -54,10 +63,21 @@ public class ProfileFragment extends Fragment {
     }
     private void initstudentData() {
         Log.d(TAG, "initData: started");
+
         profile_id.setText(String.valueOf(student.getStudent_id()));
         name.setText( student.getFirstName()+" "+student.getLastName());
         email.setText(student.getEmail());
         phone.setText(student.getPhoneNumber());
+        studentLayout.setVisibility(View.VISIBLE);
+        parentPhone.setText(student.getParentPhoneNumber());
+        Credit.setText(student.getCredit());
+        if(student.getActivate()){
+            studentStatus.setText("Active");
+        }else{
+            studentStatus.setText("NotActive");
+            studentStatus.setTextColor(5);
+        }
+
         Glide.with(this)
                 .asBitmap()
                 .load(student.getImgUrl())
