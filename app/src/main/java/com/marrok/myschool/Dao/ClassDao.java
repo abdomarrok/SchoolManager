@@ -26,7 +26,7 @@ public interface ClassDao {
     List<aClass> getAllClasses();
 
     @Query("SELECT *FROM class WHERE class_id=:id")
-    Subject getClassById(int id);
+    aClass getClassById(int id);
 
     @Query("SELECT class_id FROM class WHERE className=:name")
     int getClassIdByName(String name);

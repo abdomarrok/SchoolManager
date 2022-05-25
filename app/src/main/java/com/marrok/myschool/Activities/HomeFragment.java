@@ -18,7 +18,7 @@ import com.marrok.myschool.R;
 
 public class HomeFragment extends Fragment {
     private static final String TAG = "HomeFragment";
-    private TextView teachers_TXT,subject_TXT,class_TXT,student_TXT;
+    private TextView teachers_TXT,subject_TXT,class_TXT,student_TXT,enrollment_TXT;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -29,6 +29,7 @@ public class HomeFragment extends Fragment {
         subject_TXT=view.findViewById(R.id.subject_id);
         class_TXT=view.findViewById(R.id.class_id_txt);
         student_TXT=view.findViewById(R.id.student_txt2);
+        enrollment_TXT=view.findViewById(R.id.enrollment_txt);
         teachers_TXT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -60,6 +61,14 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) {
                 Toast.makeText(getActivity(), "clicked", Toast.LENGTH_SHORT).show();
                 transaction.replace(R.id.fragment_container, new StudentFragment());
+                transaction.commit();
+            }
+        });
+        enrollment_TXT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(), "clicked", Toast.LENGTH_SHORT).show();
+                transaction.replace(R.id.fragment_container, new EnrollmentFragment());
                 transaction.commit();
             }
         });

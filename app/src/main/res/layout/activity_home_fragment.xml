@@ -109,17 +109,6 @@
                 android:text="@string/class_str"
                 android:textColor="@color/school_color"
                 android:textSize="25sp" />
-            <TextView
-                android:id="@+id/enrollment"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:drawableRight="@drawable/blackarrow"
-                android:drawableBottom="@drawable/line__"
-                android:layout_marginTop="15dp"
-                android:gravity="center_vertical"
-                android:text="@string/enrollment"
-                android:textColor="@color/school_color"
-                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/student_txt2"
@@ -130,6 +119,17 @@
                 android:drawableBottom="@drawable/line__"
                 android:gravity="center_vertical"
                 android:text="@string/students"
+                android:textColor="@color/school_color"
+                android:textSize="25sp" />
+            <TextView
+                android:id="@+id/enrollment_txt"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawableRight="@drawable/blackarrow"
+                android:drawableBottom="@drawable/line__"
+                android:layout_marginTop="15dp"
+                android:gravity="center_vertical"
+                android:text="@string/enrollment"
                 android:textColor="@color/school_color"
                 android:textSize="25sp" />
 

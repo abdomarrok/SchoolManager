@@ -38,14 +38,9 @@ import java.util.List;
 
 public class AddStudentDialog extends DialogFragment {
     private SchoolDB schoolDB;
-    private List<Student> students;
-    private List<aClass> classes;
-    private Spinner classSpinner;
-    private EditText student_firstTxtName,student_lastTxtName,student_img_Url,student_email,student_phone,parent_student_phone,class_price;
+    private EditText student_firstTxtName,student_lastTxtName,student_img_Url,student_email,student_phone,parent_student_phone;
     private TextView txtUserName, txtWarning;
     private Button btnAddStudent;
-    String selectedClass="e";
-    ArrayList<String> aclass;
 
     public interface AddStudent {
         void onAddStudentResult (Student student);
@@ -62,24 +57,6 @@ public class AddStudentDialog extends DialogFragment {
                 .setView(view);
 
         initViews(view);
-
-        classes=new ArrayList<>();
-        aclass=new ArrayList<>();
-        classSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                 selectedClass= classSpinner.getItemAtPosition(i).toString();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
-        Class_AsyncTask class_asyncTask=new Class_AsyncTask();
-        class_asyncTask.execute();
-
-        /** 1  get  student names */
         Bundle bundle = getArguments();
         btnAddStudent.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,8 +78,6 @@ public class AddStudentDialog extends DialogFragment {
         txtUserName =  view.findViewById(R.id.userName);
         txtWarning =  view.findViewById(R.id.txtWarning);
         btnAddStudent = view.findViewById(R.id.btnAddStudent);
-        classSpinner=view.findViewById(R.id.class_spinner);
-        class_price=view.findViewById(R.id.class_price);
     }
 
     private void addStudent () {
@@ -114,11 +89,10 @@ public class AddStudentDialog extends DialogFragment {
             String phone_number=student_phone.getText().toString();
             String parent_phone=parent_student_phone.getText().toString();
             String img_URL=student_img_Url.getText().toString();
-            int class_id =getClassId();//get id by class name from db
-            String price=class_price.getText().toString();
             String date = getCurrentDate();
             Student student1=new Student(img_URL,firstname,lastname,true,
                     "0",phone_number,parent_phone,email);
+
             try {
 
                 schoolDB= SchoolDB.getInstance(getActivity());
@@ -142,28 +116,6 @@ public class AddStudentDialog extends DialogFragment {
         }
     }
 
-    private int getClassId() {
-        int class_id;
-        try {
-            schoolDB= SchoolDB.getInstance(getActivity());
-            if(schoolDB!=null){
-                try {
-                     class_id= schoolDB.aClassDao().getClassIdByName(getSelectedClass());
-                     return  class_id;
-                }catch (SQLException e){
-                    e.printStackTrace();
-                }
-            }
-        }catch (ClassCastException e) {
-            e.printStackTrace();
-        }
-        return 2000;
-    }
-
-    private String getSelectedClass() {
-        return selectedClass;
-    }
-
     private String getCurrentDate() {
         Log.d(TAG, "getCurrentDate: called");
 
@@ -182,38 +134,4 @@ public class AddStudentDialog extends DialogFragment {
         return true;
     }
 
-    public class Class_AsyncTask extends AsyncTask<Void,Void,Void> {
-        @Override
-        protected void onPreExecute() {
-            Log.d(TAG, "onPreExecute: started ");
-            super.onPreExecute();
-            schoolDB=SchoolDB.getInstance(getActivity());
-        }
-
-        @Override
-        protected Void doInBackground(Void... voids) {
-            Log.d(TAG, "doInBackground: started");
-            if(schoolDB!=null){
-                classes=schoolDB.aClassDao().getAllClasses();
-            }return null;
-
-        }
-
-        @Override
-        protected void onPostExecute(Void unused) {
-            Log.d(TAG, "onPostExecute: calls");
-            for (aClass class1 : classes) {
-                aclass.add(class1.getClassName());
-            }
-
-            super.onPostExecute(unused);
-
-            classSpinner.setAdapter(new ArrayAdapter<String>(getActivity(),
-                    com.google.android.material.R.layout.support_simple_spinner_dropdown_item,
-                    aclass));
-
-
-        }
-
-    }
 }

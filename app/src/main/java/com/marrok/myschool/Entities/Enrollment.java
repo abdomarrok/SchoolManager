@@ -3,6 +3,7 @@ package com.marrok.myschool.Entities;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
+
 @Entity(tableName = "enrollment")
 public class Enrollment {
     @PrimaryKey(autoGenerate = true)
