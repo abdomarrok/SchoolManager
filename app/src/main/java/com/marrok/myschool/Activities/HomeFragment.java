@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,7 +23,7 @@ import com.marrok.myschool.R;
 
 public class HomeFragment extends Fragment {
     private static final String TAG = "HomeFragment";
-    private TextView teachers_TXT,subject_TXT,class_TXT,student_TXT,enrollment_TXT;
+    private TextView teachers_TXT,subject_TXT,class_TXT,student_TXT,enrollment_TXT,SignOut_TXT;
     private TextView mangerName,email_manager;
     private ImageView manager_img;
     private FirebaseAuth mAuth;
@@ -36,6 +37,7 @@ public class HomeFragment extends Fragment {
         mangerName=view.findViewById(R.id.manager_nam);
         email_manager=view.findViewById(R.id.email_manager);
         manager_img=view.findViewById(R.id.user_avatar);
+        SignOut_TXT=view.findViewById(R.id.signout);
     }
     private void setOnClickListener() {
         FragmentTransaction transaction =getActivity().getSupportFragmentManager().beginTransaction();
@@ -79,6 +81,13 @@ public class HomeFragment extends Fragment {
                 transaction.commit();
             }
         });
+        SignOut_TXT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mAuth.signOut();
+                startActivity(new Intent(getActivity(),MainActivity.class));
+            }
+        });
     }
     @Nullable
     @Override
@@ -90,16 +99,20 @@ public class HomeFragment extends Fragment {
         FirebaseUser user = mAuth.getCurrentUser();
         if (user != null) {
             // Name, email address, and profile photo Url
-            String name = user.getDisplayName();
-            String email = user.getEmail();
-            String img_url=user.getPhotoUrl().toString();
-            mangerName.setText(name);
-             mangerName.setText(name);
-             email_manager.setText(email);
-             Glide.with(getActivity())
-             .asBitmap()
-             .load(img_url)
-             .into(manager_img);
+            try{
+                String name = user.getDisplayName();
+                String email = user.getEmail();
+                String img_url=user.getPhotoUrl().toString();
+                mangerName.setText(name);
+                mangerName.setText(name);
+                email_manager.setText(email);
+                Glide.with(getActivity())
+                        .asBitmap()
+                        .load(img_url)
+                        .into(manager_img);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
         }
 
         setOnClickListener();
