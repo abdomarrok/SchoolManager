@@ -3,19 +3,30 @@ package com.marrok.myschool.Activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.room.Database;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.marrok.myschool.R;
 
 public class DashboardActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
+
     private static final String TAG = "DashboardActivity";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +35,9 @@ public class DashboardActivity extends AppCompatActivity {
         setContentView(R.layout.dashboard_activity);
         bottomNavigationView=findViewById(R.id.navigation);
 
+
     }
+
 
     @Override
     protected void onStart() {
