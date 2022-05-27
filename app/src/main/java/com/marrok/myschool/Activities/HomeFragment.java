@@ -23,12 +23,14 @@ import com.marrok.myschool.R;
 
 public class HomeFragment extends Fragment {
     private static final String TAG = "HomeFragment";
-    private TextView teachers_TXT,subject_TXT,class_TXT,student_TXT,enrollment_TXT,SignOut_TXT;
+    private TextView teachers_TXT,subject_TXT,class_TXT,student_TXT,enrollment_TXT,SignOut_TXT,Finance_TXT,Attendance_TXT;
     private TextView mangerName,email_manager;
     private ImageView manager_img;
     private FirebaseAuth mAuth;
 
     private void initView(View view) {
+        Finance_TXT=view.findViewById(R.id.finance);
+        Attendance_TXT=view.findViewById(R.id.attendance);
         teachers_TXT=view.findViewById(R.id.teacher);
         subject_TXT=view.findViewById(R.id.subject_id);
         class_TXT=view.findViewById(R.id.class_id_txt);
@@ -86,6 +88,18 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) {
                 mAuth.signOut();
                 startActivity(new Intent(getActivity(),MainActivity.class));
+            }
+        });
+        Finance_TXT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(), "coming soon", Toast.LENGTH_SHORT).show();
+            }
+        });
+        Attendance_TXT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(), "coming soon", Toast.LENGTH_SHORT).show();
             }
         });
     }

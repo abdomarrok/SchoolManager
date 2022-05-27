@@ -35,8 +35,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
-        android:layout_marginTop="52dp"
-        android:layout_toRightOf="@+id/User"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/User"
         android:text="@string/id_number"
         android:textAppearance="@style/total_value" />
 
@@ -44,9 +44,10 @@
         android:id="@+id/avatar"
         android:layout_width="113dp"
         android:layout_height="116dp"
+        android:layout_below="@+id/User_id"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="146dp"
-        android:layout_marginTop="87dp"
+        android:layout_marginTop="5dp"
         android:src="@color/white"
         app:shapeAppearanceOverlay="@style/dashboardavatar" />
 

@@ -6,20 +6,10 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.room.Database;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.bumptech.glide.Glide;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.marrok.myschool.R;
 
 public class DashboardActivity extends AppCompatActivity {
@@ -60,7 +50,6 @@ public class DashboardActivity extends AppCompatActivity {
                         transaction.commit();
                         break;
                     case R.id.profile_txt:
-                        //todo : send user information
                         Intent intent =new Intent(DashboardActivity.this,ProfileUserActivity.class);
                             startActivity(intent);
                         break;
