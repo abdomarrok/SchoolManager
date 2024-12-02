@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import java.net.URL?>
+
+
+<?import javafx.scene.image.Image?>
+<AnchorPane id="AnchorPane" onKeyPressed="#processLogin2" styleClass="background" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marrok.schoolmanager.controllers.LoginController">
+<AnchorPane id="anchorPane2" layoutX="20.0" layoutY="240.0" prefHeight="137.0" prefWidth="500.0" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+    <children>
+        <TextField fx:id="userId" alignment="CENTER_RIGHT" layoutX="50.0" layoutY="9.0" prefHeight="30.0" prefWidth="400.0" promptText="اسم المستخدم">
+            <styleClass>
+                <String fx:value="userId" />
+
+            </styleClass>
+        </TextField>
+        <PasswordField fx:id="password" alignment="CENTER_RIGHT" layoutX="50.0" layoutY="69.0" prefHeight="30.0" prefWidth="400.0" promptText="كلمة المرور">
+            <styleClass>
+                <String fx:value="password" />
+            </styleClass>
+        </PasswordField>
+    </children>
+</AnchorPane>
+
+<ImageView fitHeight="114.0" fitWidth="131.0" AnchorPane.bottomAnchor="336.84246826171875" AnchorPane.leftAnchor="185.0" AnchorPane.rightAnchor="184.0" AnchorPane.topAnchor="66.0">
+    <image>
+        <Image url="@../img/logo.png" />
+    </image>
+</ImageView>
+<Button fx:id="login" alignment="CENTER" contentDisplay="CENTER" layoutX="171.0" layoutY="411.0" onAction="#processLogin" prefHeight="30.0" prefWidth="200.0" styleClass="lgn_btn" text="دخول" AnchorPane.bottomAnchor="96.84246826171875" />
+<stylesheets>
+
+    <URL value="@../css/all.css" />
+</stylesheets>
+</AnchorPane>
