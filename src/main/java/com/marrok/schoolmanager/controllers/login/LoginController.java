@@ -36,15 +36,9 @@ public class LoginController {
         handleLogin(event);
     }
 
-    @FXML
-    public void processLogin2(KeyEvent keyEvent) throws SQLException {
-        logger.info("Processing Login KeyEvent");
-        if (keyEvent.getCode() == KeyCode.ENTER) {
-            handleLogin(keyEvent);
-        }
-    }
 
-    private void handleLogin(Event event) throws SQLException {
+
+    private void handleLogin(ActionEvent event) throws SQLException {
         logger.info("Handling Login Event");
         String username = userId.getText();
         String pass = password.getText();
@@ -66,16 +60,10 @@ public class LoginController {
             if(checkSchoolexist()){
 
 
-            if (event instanceof ActionEvent) {
-                GeneralUtil.loadScene("/com/marrok/schoolmanager/views/dashboard/dashboard.fxml", (ActionEvent) event, true);
-            } else if (event instanceof KeyEvent) {
-                // Handle scene change differently if needed, or provide a fallback
-                Node source = (Node) event.getSource();
-                Stage stage = (Stage) source.getScene().getWindow();
-                GeneralUtil.loadScene("/com/marrok/schoolmanager/views/dashboard/dashboard.fxml", new ActionEvent(source, stage), true);
-            }
+                GeneralUtil.loadScene("/com/marrok/schoolmanager/views/dashboard/dashboard.fxml", event, true);
+
             }else{
-                GeneralUtil.loadScene("/com/marrok/schoolmanager/views/school/school_form_view.fxml", (ActionEvent) event, true);
+                GeneralUtil.loadScene("/com/marrok/schoolmanager/views/school/school_form_view.fxml", event, true);
             }
         } else {
             logger.info("Login failed");

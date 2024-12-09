@@ -1,16 +1,21 @@
 package com.marrok.schoolmanager.controllers.school;
 
+import com.marrok.schoolmanager.Main;
 import com.marrok.schoolmanager.utils.GeneralUtil;
 import com.marrok.schoolmanager.utils.database.SchoolDbHelper;
+import com.marrok.schoolmanager.utils.database.UserDbHelper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
 import java.sql.SQLException;
 
 public class SchoolFormController {
+    private static final Logger logger = LogManager.getLogger(SchoolFormController.class);
     private SchoolDbHelper dbHelper = new SchoolDbHelper();
     public TextField nameField;
     public TextField addressField;
@@ -26,10 +31,12 @@ public class SchoolFormController {
 
     @FXML
     public void initialize() {
+        logger.info("Initializing SchoolFormController");
         loadSchoolInfo();
     }
 
     private void loadSchoolInfo() {
+        logger.info("loadSchoolInfo");
         try {
             String[] schoolInfo = dbHelper.getSchoolInfo();
             if (schoolInfo != null) {
@@ -49,7 +56,7 @@ public class SchoolFormController {
                 existingSchoolId = -1; // No existing school info
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error(e);
             GeneralUtil.showAlert(Alert.AlertType.ERROR, "Database Error", "Failed to load school information.");
         }
     }
@@ -59,6 +66,7 @@ public class SchoolFormController {
      * @param event The ActionEvent triggered by the save button.
      */
     public void onSave(ActionEvent event) {
+        logger.info("onSave");
         String name = nameField.getText();
         String address = addressField.getText();
         String email = emailField.getText();
@@ -92,12 +100,14 @@ public class SchoolFormController {
     }
 
     private void clearForm() {
+        logger.info("clearForm");
         nameField.clear();
         addressField.clear();
         emailField.clear();
     }
 
     public void onCancel(ActionEvent event) {
-        // Optionally, handle cancel (close form or reset fields)
+        logger.info("onCancel");
+        GeneralUtil.loadScene("/com/marrok/schoolmanager/views/dashboard/dashboard.fxml",event,true);
     }
 }

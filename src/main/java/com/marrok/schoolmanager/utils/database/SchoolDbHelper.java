@@ -1,6 +1,8 @@
 package com.marrok.schoolmanager.utils.database;
 
+import com.marrok.schoolmanager.Main;
 import com.marrok.schoolmanager.utils.DatabaseConnection;
+import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import java.sql.Connection;
@@ -9,7 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class SchoolDbHelper {
-    Logger logger = Logger.getLogger(SchoolDbHelper.class);
+    private static final Logger logger = LogManager.getLogger(SchoolDbHelper.class);
     public Connection cnn;
 
     public SchoolDbHelper() throws SQLException {

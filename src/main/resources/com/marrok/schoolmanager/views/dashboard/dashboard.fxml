@@ -1,15 +1,157 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.marrok.schoolmanager.controllers.dashboard.DashboardController"
-            prefHeight="400.0" prefWidth="600.0">
-    <Label text="dashboard" />
+<?import javafx.scene.control.Label?>
+<BorderPane prefHeight="700" prefWidth="1000" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marrok.schoolmanager.controllers.dashboard.DashboardController">
 
-</AnchorPane>
+    <!-- Top Bar -->
+    <top>
+        <HBox spacing="10">
+            <Label text="School Manager" />
+        </HBox>
+    </top>
+
+    <!-- Right Sidebar -->
+    <right>
+        <VBox alignment="TOP_CENTER" spacing="10">
+            <Button>
+                <graphic>
+                    <FontIcon iconLiteral="fa-home" iconSize="24"/>
+                </graphic>
+                <text>الرئيسية</text>
+            </Button>
+            <Button>
+                <graphic>
+                    <FontIcon iconLiteral="fa-cogs" iconSize="24"/>
+                </graphic>
+                <text>الإعدادات</text>
+            </Button>
+        </VBox>
+    </right>
+
+    <!-- Center Content -->
+    <center>
+        <HBox alignment="CENTER" spacing="20">
+            <VBox alignment="TOP_CENTER" spacing="10">
+                <Label text="إضافات" />
+                <Button>
+                    <graphic>
+<!--                        <FontIcon iconLiteral="fa-exemption" iconSize="32"/>-->
+                    </graphic>
+                    <text>الإعفاء</text>
+                </Button>
+                <Button>
+                    <graphic>
+                        <FontIcon iconLiteral="fa-pencil" iconSize="32"/>
+                    </graphic>
+                    <text>التسجيلات</text>
+                </Button>
+            </VBox>
+
+            <VBox alignment="TOP_CENTER" spacing="10">
+                <Label text="أخرى" />
+                <Button>
+                    <graphic>
+                        <FontIcon iconLiteral="fa-envelope" iconSize="32"/>
+                    </graphic>
+                    <text>الرسائل</text>
+                </Button>
+                <Button>
+                    <graphic>
+                        <FontIcon iconLiteral="fa-credit-card" iconSize="32"/>
+                    </graphic>
+                    <text>البطاقات</text>
+                </Button>
+                <Button>
+                    <graphic>
+                        <FontIcon iconLiteral="fa-dollar" iconSize="32"/>
+                    </graphic>
+                    <text>المالية</text>
+                </Button>
+            </VBox>
+
+            <VBox alignment="TOP_CENTER" spacing="10">
+                <Label text="الموارد البشرية" />
+                <Button>
+                    <graphic>
+                        <FontIcon iconLiteral="fa-users" iconSize="32"/>
+                    </graphic>
+                    <text>التلاميذ</text>
+                </Button>
+                <Button>
+                    <graphic>
+                        <FontIcon iconLiteral="fa-money" iconSize="32"/>
+                    </graphic>
+                    <text>مدفوعات التلاميذ</text>
+                </Button>
+                <Button>
+                    <graphic>
+<!--                        <FontIcon iconLiteral="fa-chalkboard" iconSize="32"/>-->
+                    </graphic>
+                    <text>الأساتذة</text>
+                </Button>
+            </VBox>
+
+            <VBox alignment="TOP_CENTER" spacing="10">
+                <Label text="الأقسام" />
+                <Button>
+                    <graphic>
+                        <FontIcon iconLiteral="fa-users" iconSize="32"/>
+                    </graphic>
+                    <text>الأفواج</text>
+                </Button>
+                <Button>
+                    <graphic>
+                        <FontIcon iconLiteral="fa-calendar" iconSize="32"/>
+                    </graphic>
+                    <text>حصص الأفواج</text>
+                </Button>
+                <Button>
+                    <graphic>
+                        <FontIcon iconLiteral="fa-calendar" iconSize="32"/>
+                    </graphic>
+                    <text>حصص إضافية</text>
+                </Button>
+                <Button>
+                    <graphic>
+                        <FontIcon iconLiteral="fa-clipboard" iconSize="32"/>
+                    </graphic>
+                    <text>الدورات</text>
+                </Button>
+            </VBox>
+
+            <VBox alignment="TOP_CENTER" spacing="10">
+                <Label text="قسم التسيير" />
+                <Button>
+                    <graphic>
+<!--                        <FontIcon iconLiteral="fa-hospital" iconSize="32"/>-->
+                    </graphic>
+                    <text>الإستقبال</text>
+                </Button>
+                <Button>
+                    <graphic>
+                        <FontIcon iconLiteral="fa-ban" iconSize="32"/>
+                    </graphic>
+                    <text>الغيابات</text>
+                </Button>
+                <Button>
+                    <graphic>
+                        <FontIcon iconLiteral="fa-check-circle" iconSize="32"/>
+                    </graphic>
+                    <text>الحضور</text>
+                </Button>
+                <Button>
+                    <graphic>
+                        <FontIcon iconLiteral="fa-bell" iconSize="32"/>
+                    </graphic>
+                    <text>التنبيهات</text>
+                </Button>
+            </VBox>
+
+        </HBox>
+    </center>
+
+</BorderPane>

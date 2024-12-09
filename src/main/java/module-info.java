@@ -3,6 +3,8 @@ module com.marrok.schoolmanager {
     requires javafx.fxml;
 
     requires net.synedra.validatorfx;
+    requires org.kordamp.ikonli.core;
+    requires org.kordamp.ikonli.javafx;
     requires java.logging;
     requires log4j;
     requires java.sql;

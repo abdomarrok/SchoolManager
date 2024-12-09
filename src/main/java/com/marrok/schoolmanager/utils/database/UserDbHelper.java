@@ -2,6 +2,7 @@ package com.marrok.schoolmanager.utils.database;
 
 import com.marrok.schoolmanager.utils.DatabaseConnection;
 import com.marrok.schoolmanager.utils.GeneralUtil;
+import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import java.security.NoSuchAlgorithmException;
@@ -11,7 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserDbHelper {
-    Logger logger = Logger.getLogger(UserDbHelper.class);
+    private static final Logger logger = LogManager.getLogger(UserDbHelper.class);
     public Connection cnn;
 
     public UserDbHelper() throws SQLException {
