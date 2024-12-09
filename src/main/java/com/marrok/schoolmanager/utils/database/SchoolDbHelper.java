@@ -80,21 +80,19 @@ public class SchoolDbHelper {
     }
 
     /**
-     * Updates a school record by ID.
+     * Updates the first school record.
      *
-     * @param id      School ID.
      * @param name    New school name.
      * @param address New school address.
      * @param email   New school email.
      * @throws SQLException if a database access error occurs.
      */
-    public void updateSchool(int id, String name, String address, String email) throws SQLException {
-        String query = "UPDATE school SET name = ?, address = ?, email = ? WHERE id = ?";
+    public void updateSchool(String name, String address, String email) throws SQLException {
+        String query = "UPDATE school SET name = ?, address = ?, email = ? LIMIT 1";
         try (PreparedStatement pstmt = cnn.prepareStatement(query)) {
             pstmt.setString(1, name);
             pstmt.setString(2, address);
             pstmt.setString(3, email);
-            pstmt.setInt(4, id);
 
             int rows = pstmt.executeUpdate();
             logger.info("School updated, rows affected: " + rows);

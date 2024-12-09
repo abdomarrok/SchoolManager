@@ -63,8 +63,8 @@ public class LoginController {
 
         if (isAuthenticated) {
             logger.info("Login successful");
-//            if(checkSchoolexist()){
-            if(false){
+            if(checkSchoolexist()){
+
 
             if (event instanceof ActionEvent) {
                 GeneralUtil.loadScene("/com/marrok/schoolmanager/views/dashboard/dashboard.fxml", (ActionEvent) event, true);
