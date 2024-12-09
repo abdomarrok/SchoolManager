@@ -2,7 +2,6 @@ package com.marrok.schoolmanager.utils.database;
 
 import com.marrok.schoolmanager.utils.DatabaseConnection;
 import com.marrok.schoolmanager.utils.GeneralUtil;
-import javafx.scene.control.Alert;
 import org.apache.log4j.Logger;
 
 import java.security.NoSuchAlgorithmException;
@@ -21,7 +20,7 @@ public class UserDbHelper {
     }
     public String getUserNameById(int userId) {
         logger.info("getUserNameById");
-        String query = "SELECT username FROM users WHERE id = ?";
+        String query = "SELECT username FROM user WHERE id = ?";
         String username = null;
 
         try (PreparedStatement preparedStatement = this.cnn.prepareStatement(query)) {
@@ -40,7 +39,7 @@ public class UserDbHelper {
 
     public int getUserIdByName(String username) {
         logger.info("getUserIdByName");
-        String query = "SELECT id FROM users WHERE username = ?";
+        String query = "SELECT id FROM user WHERE username = ?";
         int userId = -1; // Return -1 if the user is not found
 
         try (PreparedStatement preparedStatement = this.cnn.prepareStatement(query)) {
@@ -66,7 +65,7 @@ public class UserDbHelper {
     public boolean authenticateUser(String username, String password) {
 
 
-        String query = "SELECT * FROM users WHERE username = ? AND password = ?";
+        String query = "SELECT * FROM user WHERE username = ? AND password = ?";
         try (PreparedStatement preparedStatement = cnn.prepareStatement(query)) {
             // Hash the password if needed
             String hashedPassword = GeneralUtil.hash(password); // If you're storing hashed passwords

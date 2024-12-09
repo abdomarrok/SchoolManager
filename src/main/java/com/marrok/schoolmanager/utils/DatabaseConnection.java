@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.sql.*;
 
 public class DatabaseConnection {
-    private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/invlouiza";
+    private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/school";
     private static final String DATABASE_USER = "root";
     private static final String DATABASE_PASSWORD = "";
     private static DatabaseConnection instance;

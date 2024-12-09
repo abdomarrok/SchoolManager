@@ -1,11 +1,11 @@
-package com.marrok.schoolmanager.controllers;
+package com.marrok.schoolmanager.controllers.login;
 
 import com.marrok.schoolmanager.utils.GeneralUtil;
+import com.marrok.schoolmanager.utils.database.SchoolDbHelper;
 import com.marrok.schoolmanager.utils.database.UserDbHelper;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
-import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
@@ -19,6 +19,7 @@ import java.sql.SQLException;
 
 public class LoginController {
     UserDbHelper userDbHelper= new UserDbHelper();
+    SchoolDbHelper schoolDbHelper= new SchoolDbHelper();
     Logger logger = Logger.getLogger(LoginController.class);
 
     @FXML
@@ -30,20 +31,20 @@ public class LoginController {
     }
 
     @FXML
-    public void processLogin(ActionEvent event) {
+    public void processLogin(ActionEvent event) throws SQLException {
         logger.info("Processing Login Event");
         handleLogin(event);
     }
 
     @FXML
-    public void processLogin2(KeyEvent keyEvent) {
+    public void processLogin2(KeyEvent keyEvent) throws SQLException {
         logger.info("Processing Login KeyEvent");
         if (keyEvent.getCode() == KeyCode.ENTER) {
             handleLogin(keyEvent);
         }
     }
 
-    private void handleLogin(Event event) {
+    private void handleLogin(Event event) throws SQLException {
         logger.info("Handling Login Event");
         String username = userId.getText();
         String pass = password.getText();
@@ -62,17 +63,29 @@ public class LoginController {
 
         if (isAuthenticated) {
             logger.info("Login successful");
+//            if(checkSchoolexist()){
+            if(false){
+
             if (event instanceof ActionEvent) {
-                GeneralUtil.loadScene("/com/marrok/schoolmanager/views/test.fxml", (ActionEvent) event, true);
+                GeneralUtil.loadScene("/com/marrok/schoolmanager/views/dashboard/dashboard.fxml", (ActionEvent) event, true);
             } else if (event instanceof KeyEvent) {
                 // Handle scene change differently if needed, or provide a fallback
                 Node source = (Node) event.getSource();
                 Stage stage = (Stage) source.getScene().getWindow();
-                GeneralUtil.loadScene("/com/marrok/schoolmanager/views/test.fxml", new ActionEvent(source, stage), true);
+                GeneralUtil.loadScene("/com/marrok/schoolmanager/views/dashboard/dashboard.fxml", new ActionEvent(source, stage), true);
+            }
+            }else{
+                GeneralUtil.loadScene("/com/marrok/schoolmanager/views/school/school_form_view.fxml", (ActionEvent) event, true);
             }
         } else {
             logger.info("Login failed");
         }
+    }
+
+    private boolean checkSchoolexist() throws SQLException {
+        logger.info("Checking School Manager");
+       return schoolDbHelper.isSchoolInfoExists();
+
     }
 
 }

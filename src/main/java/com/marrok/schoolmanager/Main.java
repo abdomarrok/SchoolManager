@@ -22,7 +22,7 @@ public class Main extends Application {
     public void start(Stage stage) {
         logger.info("Starting the School Manager Application");
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/com/marrok/schoolmanager/views/login.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/com/marrok/schoolmanager/views/login/login.fxml"));
             Parent root = fxmlLoader.load();
 
             // Enable dragging of undecorated stage

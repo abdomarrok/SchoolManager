@@ -11,5 +11,9 @@ module com.marrok.schoolmanager {
     exports com.marrok.schoolmanager;
     opens com.marrok.schoolmanager.controllers to javafx.fxml;
     exports com.marrok.schoolmanager.controllers;
+    exports com.marrok.schoolmanager.controllers.school;
+    opens com.marrok.schoolmanager.controllers.school to javafx.fxml;
+    exports com.marrok.schoolmanager.controllers.login;
+    opens com.marrok.schoolmanager.controllers.login to javafx.fxml;
 
 }
