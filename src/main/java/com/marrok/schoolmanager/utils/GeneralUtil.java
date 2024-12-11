@@ -23,6 +23,9 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 
+import java.util.Locale;
+import java.util.Objects;
+import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
 public class GeneralUtil {
@@ -73,7 +76,7 @@ public class GeneralUtil {
             scene.setCursor(Cursor.HAND);
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.getIcons().add(new Image(GeneralUtil.class.getResourceAsStream("/com/marrok/schoolmanager/img/logo.png")));
+            stage.getIcons().add(new Image(Objects.requireNonNull(GeneralUtil.class.getResourceAsStream("/com/marrok/schoolmanager/img/logo.png"))));
 
             // Check if the resource path is the login view; if so, don't set dimensions to maximize
             if (resourcePath.contains("login")) {

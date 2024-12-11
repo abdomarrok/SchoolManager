@@ -15,7 +15,7 @@ public class DatabaseConnection {
     private static final String DATABASE_PASSWORD = "";
     private static DatabaseConnection instance;
     private Connection connection;
-    private static final Logger logger = LogManager.getLogger(AppLauncher.class);
+    private static final Logger logger = LogManager.getLogger(DatabaseConnection.class);
     private DatabaseConnection()  {
         try {
             logger.info("Connecting to database...");

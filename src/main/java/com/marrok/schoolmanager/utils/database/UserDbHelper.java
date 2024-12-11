@@ -12,13 +12,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserDbHelper {
+    private static int activeUserId; // Static field for storing active user ID
     private static final Logger logger = LogManager.getLogger(UserDbHelper.class);
     public Connection cnn;
 
     public UserDbHelper() throws SQLException {
-        logger.info("UserDbHelper started getConnection Instance() ");
+        logger.info("UserDbHelper started getConnection Instance()");
         this.cnn = DatabaseConnection.getInstance().getConnection();
     }
+
     public String getUserNameById(int userId) {
         logger.info("getUserNameById");
         String query = "SELECT username FROM user WHERE id = ?";
@@ -32,7 +34,7 @@ public class UserDbHelper {
                 username = resultSet.getString("username");
             }
         } catch (SQLException e) {
-          logger.error(e);
+            logger.error(e);
         }
 
         return username;
@@ -51,11 +53,12 @@ public class UserDbHelper {
                 userId = resultSet.getInt("id");
             }
         } catch (SQLException e) {
-           logger.error(e);
+            logger.error(e);
         }
 
         return userId;
     }
+
     /**
      * Authenticate the user based on username and password.
      *
@@ -64,9 +67,7 @@ public class UserDbHelper {
      * @return true if the username and password are valid, false otherwise.
      */
     public boolean authenticateUser(String username, String password) {
-
-
-        String query = "SELECT * FROM user WHERE username = ? AND password = ?";
+        String query = "SELECT id FROM user WHERE username = ? AND password = ?";
         try (PreparedStatement preparedStatement = cnn.prepareStatement(query)) {
             // Hash the password if needed
             String hashedPassword = GeneralUtil.hash(password); // If you're storing hashed passwords
@@ -77,16 +78,25 @@ public class UserDbHelper {
             ResultSet resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
-                // User exists with the given credentials
+                // Set activeUserId
+                activeUserId = resultSet.getInt("id");
+                logger.info("Active user ID set to: " + activeUserId);
                 return true;
             }
         } catch (SQLException | NoSuchAlgorithmException e) {
-           logger.error(e);
+            logger.error(e);
         }
 
         return false;  // No matching user found
     }
 
+    // Getter for the active user ID
+    public static int getActiveUserId() {
+        return activeUserId;
+    }
 
-
+    // Setter for activeUserId (optional, if needed elsewhere)
+    public static void setActiveUserId(int userId) {
+        activeUserId = userId;
+    }
 }
