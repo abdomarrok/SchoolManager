@@ -1,3 +1,24 @@
+/* Global Styles */
+
+@font-face {
+    font-family: "Ruge Boogie";
+    src: url("../fonts/RugeBoogie-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Cairo";
+    font-style:bold ;
+    src: url("../fonts/Cairo-Variable.ttf");
+}
+@font-face {
+    font-family: "Reem Kufi";
+    src: url("../fonts/ReemKufi-Bold.ttf");
+}
+@font-face {
+    font-family: "Andalus";
+    src: url("../fonts/Andalus.ttf");
+}
+
 .dashboard_tub {
     -fx-background-radius: 15;
     -fx-border-radius: 15;
@@ -26,7 +47,28 @@
     -fx-scale-x: 0.98; /* Slight scale-down effect */
     -fx-scale-y: 0.98;
 }
+.graphic_only_btn {
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-alignment: CENTER;
+    -fx-effect: dropshadow(one-pass-box, rgba(0,0,0,0.2), 6, 0, 0, 2); /* Add a default background */
+    -fx-transition: all 0.3s ease; /* Smooth transition for hover/press */
+}
 
+
+.graphic_only_btn:hover {
+    -fx-effect: dropshadow(one-pass-box, rgba(0,0,0,0.4), 12, 0, 0, 6);
+    -fx-background-color: #f8f9fa; /* Subtle background change */
+    -fx-scale-x: 1.02; /* Slight scale-up effect */
+    -fx-scale-y: 1.02;
+}
+
+.graphic_only_btn:pressed {
+    -fx-background-color: #e9ecef; /* Darker background for pressed effect */
+    -fx-effect: dropshadow(one-pass-box, rgba(0,0,0,0.5), 8, 0, 0, 4);
+    -fx-scale-x: 0.98; /* Slight scale-down effect */
+    -fx-scale-y: 0.98;
+}
 .app_bar {
     -fx-background-color: #434343;  /* Background color of the top bar */
     -fx-alignment: CENTER_LEFT;  /* Align the content to the left */
@@ -41,4 +83,7 @@
 .app_bar Label {
     -fx-font-size: 20px;  /* Increase label size for visibility */
     -fx-text-fill: #ffffff;  /* Ensure the label text is white */
+}
+.app_right_bar{
+
 }

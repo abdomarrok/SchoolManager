@@ -35,13 +35,13 @@
     <!-- Right Sidebar -->
     <right>
         <VBox alignment="TOP_CENTER" spacing="10">
-            <Button>
+            <Button styleClass="graphic_only_btn">
                 <graphic>
                     <FontIcon iconLiteral="fa-home" iconSize="24" />
                 </graphic>
 
             </Button>
-            <Button>
+            <Button styleClass="graphic_only_btn">
                 <graphic>
                     <FontIcon iconLiteral="fa-cogs" iconSize="24" />
                 </graphic>
