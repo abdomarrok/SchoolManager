@@ -1,0 +1,44 @@
+.dashboard_tub {
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-min-width: 180px;
+    -fx-min-height: 70px;
+    -fx-padding: 10px;
+    -fx-font-size: 21px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Cairo";
+    -fx-alignment: TOP_RIGHT;
+    -fx-effect: dropshadow(one-pass-box, rgba(0,0,0,0.2), 6, 0, 0, 2); /* Add a default background */
+    -fx-transition: all 0.3s ease; /* Smooth transition for hover/press */
+}
+
+
+.dashboard_tub:hover {
+    -fx-effect: dropshadow(one-pass-box, rgba(0,0,0,0.4), 12, 0, 0, 6);
+    -fx-background-color: #f8f9fa; /* Subtle background change */
+    -fx-scale-x: 1.02; /* Slight scale-up effect */
+    -fx-scale-y: 1.02;
+}
+
+.dashboard_tub:pressed {
+    -fx-background-color: #e9ecef; /* Darker background for pressed effect */
+    -fx-effect: dropshadow(one-pass-box, rgba(0,0,0,0.5), 8, 0, 0, 4);
+    -fx-scale-x: 0.98; /* Slight scale-down effect */
+    -fx-scale-y: 0.98;
+}
+
+.app_bar {
+    -fx-background-color: #434343;  /* Background color of the top bar */
+    -fx-alignment: CENTER_LEFT;  /* Align the content to the left */
+    -fx-font-size: 16px;  /* Set font size for the label */
+    -fx-font-weight: bold;  /* Make the text bold */
+    -fx-font-family: "Cairo";  /* Use the Cairo font */
+    -fx-text-fill: #ffffff;  /* White text color for contrast */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 0, 2);  /* Subtle shadow effect for depth */
+    -fx-border-radius: 10;  /* Rounded corners for the top bar */
+}
+
+.app_bar Label {
+    -fx-font-size: 20px;  /* Increase label size for visibility */
+    -fx-text-fill: #ffffff;  /* Ensure the label text is white */
+}
