@@ -29,7 +29,7 @@
     /*-fx-padding: 10px 20px;*/
 }
 .table-view .cell{
-    -fx-cell-size: 20;
+    -fx-cell-size: 30;
     -fx-text-fill: #000000;
     -fx-alignment: CENTER;
 }
