@@ -1,0 +1,46 @@
+@font-face {
+    font-family: "Cairo";
+    src: url("../fonts/Cairo-Variable.ttf");
+}
+.tab-pane {
+    -fx-background-color: #fffbf6; /* Light background */
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-font-size: 14px;
+    -fx-border-color: #434343; /* Matches table header color */
+}
+
+.tab-pane .tab-header-area {
+    -fx-background-color: #434343; /* Header background */
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+}
+
+.tab-pane .tab {
+    -fx-background-color: transparent;
+    -fx-text-fill: #fffbf6;
+    -fx-font-family: "Cairo";
+    -fx-font-weight: bold;
+    -fx-padding: 5px 15px;
+    -fx-border-radius: 10px;
+}
+
+.tab-pane .tab:hover {
+    /*-fx-background-color: #a9d5f2; !* Highlight tab on hover *!*/
+    -fx-text-fill: #434343;
+}
+.tab-pane .tab:selected {
+    -fx-background-color: #434343; /* Active tab background */
+    -fx-text-fill: #fffbf6; /* Active tab text color */
+    -fx-font-family: "Cairo";
+    -fx-font-weight: bold;
+}
+
+.tab-pane .tab:selected .text {
+    -fx-fill: #fffbf6; /* Ensures the text changes color */
+}
+
+.tab-pane .tab-header-area .headers-region {
+    -fx-alignment: CENTER; /* Centers the tab headers */
+}
+

@@ -1,0 +1,76 @@
+@font-face {
+    font-family: "Cairo";
+    src: url("../fonts/Cairo-Variable.ttf");
+}
+
+/* Table View Styles */
+.table-view {
+    -fx-control-inner-background:  #fffbf6; /* White background */
+    -fx-selection-bar: #343a40; /* Blue selection bar */
+    -fx-selection-bar-non-focused: #a9d5f2; /* Light blue selection bar for non-focused state */
+    -fx-font-family: "Cairo";
+    -fx-font-size: 14px;
+    -fx-background-color: transparent;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+}
+
+.table-view .column-header,
+.table-view .column-header-background .filler {
+    -fx-cell-size : 10;
+    -fx-background-color:  #434343;
+
+}
+.table-view .column-header .label{
+    /*control the table header columns*/
+    -fx-text-fill: #fffbf6;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER;
+    /*-fx-padding: 10px 20px;*/
+}
+.table-view .cell{
+    -fx-cell-size: 20;
+    -fx-text-fill: #000000;
+    -fx-alignment: CENTER;
+}
+
+.table-row-cell:selected {
+    -fx-background-color:  rgb(127, 172, 243);
+}
+.table-row-cell:selected .text {
+    -fx-fill : #fffbf6 ;
+
+}
+/* scroll bar starts here */
+
+/* The increment and decrement button CSS class of scrollbar */
+.table-view .increment-button ,.table-view .decrement-button {
+    -fx-background-color:transparent;
+    -fx-background-radius: 2em;
+
+}
+
+/* The mainController scrollbar **track** CSS class  */
+.table-view .scroll-bar:horizontal .track,
+.table-view .scroll-bar:vertical .track{
+    -fx-background-color: transparent;
+    -fx-border-color:derive(  #434343,80%);
+    -fx-background-radius: 2em;
+    -fx-border-radius:2em;
+}
+
+/* The mainController scrollbar **thumb** CSS class which we drag every time (movable) */
+.table-view .scroll-bar:horizontal .thumb,
+.table-view .scroll-bar:vertical .thumb {
+    -fx-background-color:derive(#434343,90%);
+    -fx-background-insets: 2, 0, 0;
+    -fx-background-radius: 2em;
+
+}
+
+.specialColmun {
+    -fx-text-fill: #FFFFFF;
+    -fx-alignment: CENTER;
+    -fx-font-weight: bold;
+    -fx-opacity: 0.75;
+}

@@ -32,7 +32,7 @@
     </top>
     <!-- Right Sidebar -->
     <right>
-        <VBox alignment="TOP_CENTER" spacing="10">
+        <VBox alignment="TOP_CENTER" spacing="10" styleClass="app_right_bar">
             <Button onAction="#goDashboard" styleClass="graphic_only_btn">
                 <tooltip>
                     <Tooltip text="Go to Dashboard" />
@@ -50,76 +50,72 @@
             </Button>
         </VBox>
     </right>
-    <stylesheets>
-
-        <URL value="@../../css/student.css" />
-    </stylesheets>
    <center>
-      <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" BorderPane.alignment="CENTER">
+      <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" styleClass="border-pane-center" BorderPane.alignment="CENTER">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-               <children>
-                  <TabPane layoutX="742.0" layoutY="14.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                    <tabs>
-                        <Tab text="التلاميذ">
-                            <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                    <TableView fx:id="studentTable" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                        <columns>
-                                            <!-- ID Column -->
-                                            <TableColumn fx:id="idColumn" prefWidth="50" text="المعرف" />
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                <children>
+                    <TabPane layoutX="742.0" layoutY="14.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <tabs>
+                            <Tab text="التلاميذ">
+                                <content>
+                                    <ScrollPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                        <content>
+                                            <TableView fx:id="studentTable" editable="true" tableMenuButtonVisible="true">
+                                                <columns>
+                                                    <!-- ID Column -->
+                                                    <TableColumn fx:id="idColumn" prefWidth="50" text="المعرف" />
 
-                                            <!-- First Name Column -->
-                                            <TableColumn fx:id="fnameColumn" prefWidth="100" text="الاسم الأول" />
+                                                    <!-- First Name Column -->
+                                                    <TableColumn fx:id="fnameColumn" prefWidth="100" text="الاسم الأول" />
 
-                                            <!-- Last Name Column -->
-                                            <TableColumn fx:id="lnameColumn" prefWidth="100" text="الاسم الأخير" />
+                                                    <!-- Last Name Column -->
+                                                    <TableColumn fx:id="lnameColumn" prefWidth="100" text="الاسم الأخير" />
 
-                                            <!-- Code Column -->
-                                            <TableColumn fx:id="codeColumn" prefWidth="50" text="الرمز" />
+                                                    <!-- Code Column -->
+                                                    <TableColumn fx:id="codeColumn" prefWidth="50" text="الرمز" />
 
-                                            <!-- File Number Column -->
-                                            <TableColumn fx:id="fileNumberColumn" prefWidth="100" text="رقم الملف" />
+                                                    <!-- File Number Column -->
+                                                    <TableColumn fx:id="fileNumberColumn" prefWidth="100" text="رقم الملف" />
 
-                                            <!-- Birth Date Column -->
-                                            <TableColumn fx:id="birthDateColumn" prefWidth="100" text="تاريخ الميلاد" />
+                                                    <!-- Birth Date Column -->
+                                                    <TableColumn fx:id="birthDateColumn" prefWidth="100" text="تاريخ الميلاد" />
 
-                                            <!-- Parent Name Column -->
-                                            <TableColumn fx:id="parentNameColumn" prefWidth="100" text="اسم الوالدين" />
+                                                    <!-- Parent Name Column -->
+                                                    <TableColumn fx:id="parentNameColumn" prefWidth="100" text="اسم الوالدين" />
 
-                                            <!-- Address Column -->
-                                            <TableColumn fx:id="addressColumn" prefWidth="150" text="العنوان" />
+                                                    <!-- Address Column -->
+                                                    <TableColumn fx:id="addressColumn" prefWidth="150" text="العنوان" />
 
-                                            <!-- Phone Column -->
-                                            <TableColumn fx:id="phoneColumn" prefWidth="100" text="رقم الهاتف" />
+                                                    <!-- Phone Column -->
+                                                    <TableColumn fx:id="phoneColumn" prefWidth="100" text="رقم الهاتف" />
 
-                                            <!-- Parent Phone Column -->
-                                            <TableColumn fx:id="parentPhoneColumn" prefWidth="100" text="رقم هاتف الوالدين" />
+                                                    <!-- Parent Phone Column -->
+                                                    <TableColumn fx:id="parentPhoneColumn" prefWidth="100" text="رقم هاتف الوالدين" />
 
-                                            <!-- Level Column -->
-                                            <TableColumn fx:id="levelColumn" prefWidth="50" text="المستوى" />
+                                                    <!-- Level Column -->
+                                                    <TableColumn fx:id="levelColumn" prefWidth="50" text="المستوى" />
 
-                                            <!-- Remark Column -->
-                                            <TableColumn fx:id="remarkColumn" prefWidth="100" text="ملاحظة" />
+                                                    <!-- Remark Column -->
+                                                    <TableColumn fx:id="remarkColumn" prefWidth="100" text="ملاحظة" />
 
-                                            <!-- Student School Name Column -->
-                                            <TableColumn fx:id="studentSchoolNameColumn" prefWidth="150" text="اسم المدرسة" />
+                                                    <!-- Student School Name Column -->
+                                                    <TableColumn fx:id="studentSchoolNameColumn" prefWidth="150" text="اسم المدرسة" />
 
-                                            <!-- Remise Column -->
-                                            <TableColumn fx:id="remiseColumn" prefWidth="50" text="التخفيض" />
+                                                    <!-- Remise Column -->
+                                                    <TableColumn fx:id="remiseColumn" prefWidth="50" text="التخفيض" />
 
-                                            <!-- Exemption Column -->
-                                            <TableColumn fx:id="exemptionColumn" prefWidth="80" text="الإعفاء" />
+                                                    <!-- Exemption Column -->
+                                                    <TableColumn fx:id="exemptionColumn" text="الإعفاء" />
 
-                                            <!-- Gender Column -->
-                                            <TableColumn fx:id="genderColumn" prefWidth="80" text="الجنس" />
-                                        </columns>
-                                    </TableView>
-
-                                </AnchorPane>
-                            </content>
-                        </Tab>
-
+                                                    <!-- Gender Column -->
+                                                    <TableColumn fx:id="genderColumn" text="الجنس" />
+                                                </columns>
+                                            </TableView>
+                                        </content>
+                                    </ScrollPane>
+                                </content>
+                            </Tab>
                         <Tab text="المشطوبين">
                         <content>
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
@@ -191,8 +187,11 @@
       </SplitPane>
    </center>
     <stylesheets>
-
+        <URL value="@../../css/tableview.css" />
+        <URL value="@../../css/scrollpane.css" />
+        <URL value="@../../css/tabpane.css" />
         <URL value="@../../css/student.css" />
-     
+        <URL value="@../../css/all.css" />
+
     </stylesheets>
 </BorderPane>
