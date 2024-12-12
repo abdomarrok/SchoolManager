@@ -30,7 +30,7 @@ public class Main extends Application {
 
             Scene scene = new Scene(root);
            // scene.getStylesheets().add(Main.class.getResource("/com/marrok/schoolmanager/styles/style.css").toExternalForm());
-            stage.setTitle("School Manager - Login");
+            stage.setTitle("School Manager");
             stage.setScene(scene);
             stage.setResizable(false);
 

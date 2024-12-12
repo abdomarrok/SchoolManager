@@ -64,52 +64,52 @@
                                             <TableView fx:id="studentTable" editable="true" tableMenuButtonVisible="true">
                                                 <columns>
                                                     <!-- ID Column -->
-                                                    <TableColumn fx:id="idColumn" prefWidth="50" text="المعرف" />
+                                                    <TableColumn fx:id="idColumn" maxWidth="10000.0" prefWidth="50" text="المعرف" />
 
                                                     <!-- First Name Column -->
-                                                    <TableColumn fx:id="fnameColumn" prefWidth="100" text="الاسم الأول" />
+                                                    <TableColumn fx:id="fnameColumn" maxWidth="10000.0" prefWidth="100" text="الاسم الأول" />
 
                                                     <!-- Last Name Column -->
-                                                    <TableColumn fx:id="lnameColumn" prefWidth="100" text="الاسم الأخير" />
+                                                    <TableColumn fx:id="lnameColumn" maxWidth="10000.0" prefWidth="100" text="الاسم الأخير" />
 
                                                     <!-- Code Column -->
-                                                    <TableColumn fx:id="codeColumn" prefWidth="50" text="الرمز" />
+                                                    <TableColumn fx:id="codeColumn" maxWidth="10000.0" prefWidth="50" text="الرمز" />
 
                                                     <!-- File Number Column -->
-                                                    <TableColumn fx:id="fileNumberColumn" prefWidth="100" text="رقم الملف" />
+                                                    <TableColumn fx:id="fileNumberColumn" maxWidth="10000.0" prefWidth="100" text="رقم الملف" />
 
                                                     <!-- Birth Date Column -->
-                                                    <TableColumn fx:id="birthDateColumn" prefWidth="100" text="تاريخ الميلاد" />
+                                                    <TableColumn fx:id="birthDateColumn" maxWidth="10000.0" prefWidth="100" text="تاريخ الميلاد" />
 
                                                     <!-- Parent Name Column -->
-                                                    <TableColumn fx:id="parentNameColumn" prefWidth="100" text="اسم الوالدين" />
+                                                    <TableColumn fx:id="parentNameColumn" maxWidth="10000.0" prefWidth="100" text="اسم الوالدين" />
 
                                                     <!-- Address Column -->
-                                                    <TableColumn fx:id="addressColumn" prefWidth="150" text="العنوان" />
+                                                    <TableColumn fx:id="addressColumn" maxWidth="10000.0" prefWidth="100.0" text="العنوان" />
 
                                                     <!-- Phone Column -->
-                                                    <TableColumn fx:id="phoneColumn" prefWidth="100" text="رقم الهاتف" />
+                                                    <TableColumn fx:id="phoneColumn" maxWidth="10000.0" prefWidth="100" text="رقم الهاتف" />
 
                                                     <!-- Parent Phone Column -->
-                                                    <TableColumn fx:id="parentPhoneColumn" prefWidth="100" text="رقم هاتف الوالدين" />
+                                                    <TableColumn fx:id="parentPhoneColumn" maxWidth="10000.0" prefWidth="150.0" text="رقم هاتف الوالدين" />
 
                                                     <!-- Level Column -->
-                                                    <TableColumn fx:id="levelColumn" prefWidth="50" text="المستوى" />
+                                                    <TableColumn fx:id="levelColumn" maxWidth="10000.0" prefWidth="100.0" text="المستوى" />
 
                                                     <!-- Remark Column -->
-                                                    <TableColumn fx:id="remarkColumn" prefWidth="100" text="ملاحظة" />
+                                                    <TableColumn fx:id="remarkColumn" maxWidth="10000.0" prefWidth="100" text="ملاحظة" />
 
                                                     <!-- Student School Name Column -->
-                                                    <TableColumn fx:id="studentSchoolNameColumn" prefWidth="150" text="اسم المدرسة" />
+                                                    <TableColumn fx:id="studentSchoolNameColumn" maxWidth="10000.0" prefWidth="150" text="اسم المدرسة" />
 
                                                     <!-- Remise Column -->
-                                                    <TableColumn fx:id="remiseColumn" prefWidth="50" text="التخفيض" />
+                                                    <TableColumn fx:id="remiseColumn" maxWidth="10000.0" prefWidth="100.0" text="التخفيض" />
 
                                                     <!-- Exemption Column -->
-                                                    <TableColumn fx:id="exemptionColumn" text="الإعفاء" />
+                                                    <TableColumn fx:id="exemptionColumn" maxWidth="10000.0" text="الإعفاء" />
 
                                                     <!-- Gender Column -->
-                                                    <TableColumn fx:id="genderColumn" text="الجنس" />
+                                                    <TableColumn fx:id="genderColumn" maxWidth="10000.0" text="الجنس" />
                                                 </columns>
                                             </TableView>
                                         </content>
