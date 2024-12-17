@@ -1,7 +1,6 @@
 package com.marrok.schoolmanager.controllers.student;
 
 import com.marrok.schoolmanager.model.Student;
-import com.marrok.schoolmanager.utils.DatabaseConnection;
 import com.marrok.schoolmanager.utils.GeneralUtil;
 import com.marrok.schoolmanager.utils.database.StudentDbHelper;
 import com.marrok.schoolmanager.utils.database.UserDbHelper;
@@ -12,11 +11,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -25,12 +22,11 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import org.kordamp.ikonli.javafx.FontIcon;
 
 import java.io.IOException;
-import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.ResourceBundle;
 
 public class StudentViewController {
     public Button minimizeButton;
@@ -94,17 +90,21 @@ public class StudentViewController {
         maximizeButton.setOnAction(event -> {
             Stage stage = (Stage) maximizeButton.getScene().getWindow();
             if (stage != null) {
+                FontIcon maximizeIcon = (FontIcon) maximizeButton.getGraphic(); // Get current icon
+
                 if (isMaximized) {
                     stage.setMaximized(false); // Restore to normal
-                    maximizeButton.setText("🗖");
+                    maximizeIcon.setIconLiteral("fa-square-o"); // Set restore icon (FontAwesome icon for square)
                 } else {
                     stage.setMaximized(true); // Maximize
-                    maximizeButton.setText("🗗");
+                    maximizeIcon.setIconLiteral("fa-window-restore"); // Set maximize icon (FontAwesome icon for window-restore)
                 }
+
                 isMaximized = !isMaximized;
             }
         });
     }
+
 
 
     private void loadData() {

@@ -9,24 +9,24 @@
 <BorderPane prefHeight="700" prefWidth="1000" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marrok.schoolmanager.controllers.student.StudentViewController">
     <!-- Top Bar -->
     <top>
-        <HBox spacing="10" styleClass="app_bar" alignment="CENTER_LEFT">
+        <HBox alignment="CENTER_LEFT" spacing="10" styleClass="app_bar">
             <!-- App Name -->
-            <Label text="School Manager" style="-fx-text-fill: whitesmoke; -fx-font-size: 18px;" />
+            <Label style="-fx-text-fill: whitesmoke; -fx-font-size: 18px;" text="School Manager" />
 
             <!-- Right Aligned Buttons: Current User, Dashboard -->
-            <HBox spacing="10" alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
-                <Button fx:id="current_user" text="Current User" styleClass="graphic_only_btn">
+            <HBox alignment="CENTER_RIGHT" spacing="10" HBox.hgrow="ALWAYS">
+                <Button fx:id="current_user" styleClass="window_btn" text="Current User">
                     <graphic>
                         <FontIcon iconColor="whitesmoke" iconLiteral="fa-user" iconSize="24" />
                     </graphic>
                 </Button>
 
-                <Button onAction="#goDashboard" styleClass="graphic_only_btn">
+                <Button onAction="#goDashboard" styleClass="window_btn">
                     <tooltip>
                         <Tooltip text="Go to Dashboard" />
                     </tooltip>
                     <graphic>
-                        <FontIcon iconLiteral="fa-home" iconSize="24" />
+                        <FontIcon iconColor="gray" iconLiteral="fa-home" iconSize="24" />
                     </graphic>
                 </Button>
             </HBox>
@@ -34,23 +34,23 @@
             <!-- Right Aligned Buttons -->
             <HBox alignment="TOP_RIGHT" spacing="5">
                 <!-- Minimize Button -->
-                <Button fx:id="minimizeButton" styleClass="graphic_only_btn" prefWidth="40" prefHeight="25">
+                <Button fx:id="minimizeButton" styleClass="window_btn">
                     <graphic>
-                        <FontIcon iconLiteral="fa-minus" iconSize="18" iconColor="whitesmoke" />
+                        <FontIcon iconColor="whitesmoke" iconLiteral="fa-minus" iconSize="18" />
                     </graphic>
                 </Button>
 
                 <!-- Maximize/Restore Button -->
-                <Button fx:id="maximizeButton" styleClass="graphic_only_btn" prefWidth="40" prefHeight="25">
+                <Button fx:id="maximizeButton" styleClass="window_btn">
                     <graphic>
-                        <FontIcon iconLiteral="fa-square-o" iconSize="18" iconColor="whitesmoke" />
+                        <FontIcon iconColor="whitesmoke" iconLiteral="fa-square-o" iconSize="18" />
                     </graphic>
                 </Button>
 
                 <!-- Exit Button -->
-                <Button fx:id="exitButton" styleClass="graphic_only_btn" prefWidth="40" prefHeight="25">
+                <Button fx:id="exitButton" styleClass="window_btn">
                     <graphic>
-                        <FontIcon iconLiteral="fa-times" iconSize="18" iconColor="whitesmoke" />
+                        <FontIcon iconColor="whitesmoke" iconLiteral="fa-times" iconSize="18" />
                     </graphic>
                 </Button>
             </HBox>
