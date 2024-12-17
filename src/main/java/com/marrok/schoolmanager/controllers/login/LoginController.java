@@ -3,17 +3,20 @@ package com.marrok.schoolmanager.controllers.login;
 import com.marrok.schoolmanager.utils.GeneralUtil;
 import com.marrok.schoolmanager.utils.database.SchoolDbHelper;
 import com.marrok.schoolmanager.utils.database.UserDbHelper;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import org.apache.log4j.Logger;
+import org.kordamp.ikonli.javafx.FontIcon;
 
 import java.sql.SQLException;
 
@@ -22,10 +25,11 @@ public class LoginController {
     SchoolDbHelper schoolDbHelper= new SchoolDbHelper();
     Logger logger = Logger.getLogger(LoginController.class);
 
-    @FXML
-    private TextField userId;
-    @FXML
-    private PasswordField password;
+    public TextField userId;
+    public PasswordField password;
+    public Button minimizeButton;
+    public Button exitButton;
+    private boolean isMaximized = false;
 
     public LoginController() throws SQLException {
     }
@@ -36,7 +40,10 @@ public class LoginController {
         handleLogin(event);
     }
 
-
+    @FXML
+    public void initialize() {
+        setupBarbtn();
+    }
 
     private void handleLogin(ActionEvent event) throws SQLException {
         logger.info("Handling Login Event");
@@ -68,6 +75,21 @@ public class LoginController {
         } else {
             logger.info("Login failed");
         }
+    }
+
+    private void setupBarbtn() {
+        // Exit Button Action
+        exitButton.setOnAction(event -> Platform.exit()); // Close the app
+
+        // Minimize Button Action
+        minimizeButton.setOnAction(event -> {
+            Stage stage = (Stage) minimizeButton.getScene().getWindow();
+            if (stage != null) {
+                stage.setIconified(true); // Minimize window
+            }
+        });
+
+
     }
 
     private boolean checkSchoolexist() throws SQLException {

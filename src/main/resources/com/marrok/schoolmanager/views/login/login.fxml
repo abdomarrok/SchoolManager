@@ -1,17 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import java.net.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.*?>
 
-<?import javafx.scene.image.ImageView?>
-<?import java.net.URL?>
+<AnchorPane id="AnchorPane" styleClass="background" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marrok.schoolmanager.controllers.login.LoginController">
+    <!-- Right Aligned Buttons -->
+    <HBox alignment="TOP_RIGHT" layoutX="425.0" spacing="5">
+        <!-- Minimize Button -->
+        <Button fx:id="minimizeButton" styleClass="window_btn">
+            <graphic>
+                <FontIcon iconLiteral="fa-minus" iconSize="18" />
+            </graphic>
+        </Button>
 
 
-<?import javafx.scene.image.Image?>
-<AnchorPane id="AnchorPane"  styleClass="background" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marrok.schoolmanager.controllers.login.LoginController">
+        <!-- Exit Button -->
+        <Button fx:id="exitButton" styleClass="window_btn">
+            <graphic>
+                <FontIcon iconLiteral="fa-times" iconSize="18" />
+            </graphic>
+        </Button>
+    </HBox>
 <AnchorPane id="anchorPane2" layoutX="20.0" layoutY="240.0" prefHeight="137.0" prefWidth="500.0" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
     <children>
         <TextField fx:id="userId" alignment="CENTER_RIGHT" layoutX="50.0" layoutY="9.0" prefHeight="30.0" prefWidth="400.0" promptText="اسم المستخدم">
@@ -33,9 +46,10 @@
         <Image url="@../../img/logo.png" />
     </image>
 </ImageView>
-<Button fx:id="login" alignment="CENTER" contentDisplay="CENTER"  defaultButton="true" layoutX="171.0" layoutY="411.0" onAction="#processLogin" prefHeight="30.0" prefWidth="200.0" styleClass="lgn_btn" text="دخول" AnchorPane.bottomAnchor="96.84246826171875" />
+<Button fx:id="login" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" layoutX="171.0" layoutY="411.0" onAction="#processLogin" prefHeight="30.0" prefWidth="200.0" styleClass="lgn_btn" text="دخول" AnchorPane.bottomAnchor="96.84246826171875" />
 <stylesheets>
 
-    <URL value="@../../css/dashboard.css" />
+    <URL value="@../../css/all.css" />
+
 </stylesheets>
 </AnchorPane>

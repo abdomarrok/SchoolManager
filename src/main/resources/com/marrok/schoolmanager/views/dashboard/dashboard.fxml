@@ -29,7 +29,31 @@
          <padding>
             <Insets left="10.0" />
          </padding>
+            <!-- Right Aligned Buttons -->
+            <HBox alignment="TOP_RIGHT" spacing="5">
+                <!-- Minimize Button -->
+                <Button fx:id="minimizeButton" styleClass="window_btn">
+                    <graphic>
+                        <FontIcon iconColor="whitesmoke" iconLiteral="fa-minus" iconSize="18" />
+                    </graphic>
+                </Button>
+
+                <!-- Maximize/Restore Button -->
+                <Button fx:id="maximizeButton" styleClass="window_btn">
+                    <graphic>
+                        <FontIcon iconColor="whitesmoke" iconLiteral="fa-square-o" iconSize="18" />
+                    </graphic>
+                </Button>
+
+                <!-- Exit Button -->
+                <Button fx:id="exitButton" styleClass="window_btn">
+                    <graphic>
+                        <FontIcon iconColor="whitesmoke" iconLiteral="fa-times" iconSize="18" />
+                    </graphic>
+                </Button>
+            </HBox>
         </HBox>
+
     </top>
 
     <!-- Right Sidebar -->
