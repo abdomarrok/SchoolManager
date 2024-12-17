@@ -9,150 +9,176 @@
 <BorderPane prefHeight="700" prefWidth="1000" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.marrok.schoolmanager.controllers.student.StudentViewController">
     <!-- Top Bar -->
     <top>
-        <HBox spacing="10" styleClass="app_bar">
-            <Label text="School Manager" />
-            <!-- Right Aligned User Info -->
-            <HBox alignment="CENTER" HBox.hgrow="ALWAYS">
+        <HBox spacing="10" styleClass="app_bar" alignment="CENTER_LEFT">
+            <!-- App Name -->
+            <Label text="School Manager" style="-fx-text-fill: whitesmoke; -fx-font-size: 18px;" />
 
-                <!-- Username -->
-                <Label fx:id="current_user" styleClass="username_label" text="Current User" />
-                <!-- User Icon -->
-                <FontIcon iconColor="whitesmoke" iconLiteral="fa-user" iconSize="24" />
-                <HBox.margin>
-                    <Insets />
-                </HBox.margin>
+            <!-- Right Aligned Buttons: Current User, Dashboard -->
+            <HBox spacing="10" alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+                <Button fx:id="current_user" text="Current User" styleClass="graphic_only_btn">
+                    <graphic>
+                        <FontIcon iconColor="whitesmoke" iconLiteral="fa-user" iconSize="24" />
+                    </graphic>
+                </Button>
+
+                <Button onAction="#goDashboard" styleClass="graphic_only_btn">
+                    <tooltip>
+                        <Tooltip text="Go to Dashboard" />
+                    </tooltip>
+                    <graphic>
+                        <FontIcon iconLiteral="fa-home" iconSize="24" />
+                    </graphic>
+                </Button>
             </HBox>
-              <Button onAction="#goDashboard" styleClass="graphic_only_btn">
-                  <tooltip>
-                      <Tooltip text="Go to Dashboard" />
-                  </tooltip>
-                  <graphic>
-                      <FontIcon iconLiteral="fa-home" iconSize="24" />
-                  </graphic>
-              </Button>
-            <BorderPane.margin>
-                <Insets />
-            </BorderPane.margin>
-            <padding>
-                <Insets left="10.0" />
-            </padding>
+
+            <!-- Right Aligned Buttons -->
+            <HBox alignment="TOP_RIGHT" spacing="5">
+                <!-- Minimize Button -->
+                <Button fx:id="minimizeButton" styleClass="graphic_only_btn" prefWidth="40" prefHeight="25">
+                    <graphic>
+                        <FontIcon iconLiteral="fa-minus" iconSize="18" iconColor="whitesmoke" />
+                    </graphic>
+                </Button>
+
+                <!-- Maximize/Restore Button -->
+                <Button fx:id="maximizeButton" styleClass="graphic_only_btn" prefWidth="40" prefHeight="25">
+                    <graphic>
+                        <FontIcon iconLiteral="fa-square-o" iconSize="18" iconColor="whitesmoke" />
+                    </graphic>
+                </Button>
+
+                <!-- Exit Button -->
+                <Button fx:id="exitButton" styleClass="graphic_only_btn" prefWidth="40" prefHeight="25">
+                    <graphic>
+                        <FontIcon iconLiteral="fa-times" iconSize="18" iconColor="whitesmoke" />
+                    </graphic>
+                </Button>
+            </HBox>
         </HBox>
     </top>
+
     <!-- Right Sidebar -->
 
    <center>
-       <VBox>
+         <AnchorPane VBox.vgrow="ALWAYS">
+            <children>
+      
+                 <TabPane layoutX="1000.0" nodeOrientation="RIGHT_TO_LEFT" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <tabs>
+                         <!-- Tab for Students -->
+                         <Tab text="التلاميذ">
+                             <content>
+                              <HBox>
+                                  <VBox alignment="TOP_CENTER" spacing="10.0">
+                                      <Button styleClass="graphic_only_btn">
+                                          <graphic>
+                                              <FontIcon iconLiteral="fa-pencil" iconSize="24" />
+                                          </graphic>
+   
+                                      </Button>
+                                      <Button styleClass="graphic_only_btn">
+                                          <graphic>
+                                              <FontIcon iconLiteral="fa-money" iconSize="24" />
+                                          </graphic>
+   
+                                      </Button>
+                                      <Button styleClass="graphic_only_btn">
+                                          <graphic>
+                                              <FontIcon iconLiteral="fa-times" iconSize="24" />
+                                          </graphic>
+   
+                                      </Button>
+                                      <Button styleClass="graphic_only_btn">
+                                          <graphic>
+                                              <FontIcon iconLiteral="fa-trash" iconSize="24" />
+                                          </graphic>
+   
+                                      </Button>
+                                  </VBox>
+                              <ScrollPane HBox.hgrow="ALWAYS">
+                                  <content>
 
-           <TabPane nodeOrientation="RIGHT_TO_LEFT" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
-               <tabs>
-                   <!-- Tab for Students -->
-                   <Tab text="التلاميذ">
-                       <content>
+                                      <TableView fx:id="studentTable" editable="true" tableMenuButtonVisible="true">
+                                          <columns>
+                                                      <!-- ID Column -->
+                                                   <TableColumn fx:id="idColumn" maxWidth="10000.0" prefWidth="50" text="المعرف" />
+   
+                                                   <!-- First Name Column -->
+                                                   <TableColumn fx:id="fnameColumn" maxWidth="10000.0" prefWidth="100" text="الاسم الأول" />
+   
+                                                   <!-- Last Name Column -->
+                                                   <TableColumn fx:id="lnameColumn" maxWidth="10000.0" prefWidth="100" text="الاسم الأخير" />
+   
+                                                   <!-- Code Column -->
+                                                   <TableColumn fx:id="codeColumn" maxWidth="10000.0" prefWidth="50" text="الرمز" />
+   
+                                                   <!-- File Number Column -->
+                                                   <TableColumn fx:id="fileNumberColumn" maxWidth="10000.0" prefWidth="100" text="رقم الملف" />
+   
+                                                   <!-- Birth Date Column -->
+                                                   <TableColumn fx:id="birthDateColumn" maxWidth="10000.0" prefWidth="100" text="تاريخ الميلاد" />
+   
+                                                   <!-- Parent Name Column -->
+                                                   <TableColumn fx:id="parentNameColumn" maxWidth="10000.0" prefWidth="100" text="اسم الوالدين" />
+   
+                                                   <!-- Address Column -->
+                                                   <TableColumn fx:id="addressColumn" maxWidth="10000.0" prefWidth="100.0" text="العنوان" />
+   
+                                                   <!-- Phone Column -->
+                                                   <TableColumn fx:id="phoneColumn" maxWidth="10000.0" prefWidth="100" text="رقم الهاتف" />
+   
+                                                   <!-- Parent Phone Column -->
+                                                   <TableColumn fx:id="parentPhoneColumn" maxWidth="10000.0" prefWidth="150.0" text="رقم هاتف الوالدين" />
+   
+                                                   <!-- Level Column -->
+                                                   <TableColumn fx:id="levelColumn" maxWidth="10000.0" prefWidth="100.0" text="المستوى" />
+   
+                                                   <!-- Remark Column -->
+                                                   <TableColumn fx:id="remarkColumn" maxWidth="10000.0" prefWidth="100" text="ملاحظة" />
+   
+                                                   <!-- Student School Name Column -->
+                                                   <TableColumn fx:id="studentSchoolNameColumn" maxWidth="10000.0" prefWidth="150" text="اسم المدرسة" />
+   
+                                                   <!-- Remise Column -->
+                                                   <TableColumn fx:id="remiseColumn" maxWidth="10000.0" prefWidth="100.0" text="التخفيض" />
+   
+                                                   <!-- Exemption Column -->
+                                                   <TableColumn fx:id="exemptionColumn" maxWidth="10000.0" text="الإعفاء" />
+   
+                                                   <!-- Gender Column -->
+                                                   <TableColumn fx:id="genderColumn" maxWidth="10000.0" text="الجنس" />
+                                          </columns>
+                                      </TableView>
+                                  </content>
+                              <HBox.margin>
+                                 <Insets />
+                              </HBox.margin>
+                              </ScrollPane>
+                           <padding>
+                              <Insets bottom="10.0" />
+                           </padding>
+   
+                              </HBox>
+                             </content>
+                         </Tab>
+                         <!-- Tab for Unsubscribed Students -->
+                         <Tab text="غير مسجلين">
+                             <content>
+                                 <AnchorPane>
+                                     <Label text="غير مسجلين" />
+                                 </AnchorPane>
+                             </content>
+                         </Tab>
+                     </tabs>
+                 </TabPane>
+                      <Button fx:id="addStudentButton" alignment="CENTER" contentDisplay="RIGHT" onAction="#add_Student" styleClass="add_student_btn" text="إضافة" textAlignment="CENTER" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
+                          <graphic>
+                              <FontIcon iconColor="white" iconLiteral="fa-plus" iconSize="15" />
+                          </graphic>
+                      </Button>
+            </children>
+         </AnchorPane>
 
-                           <VBox alignment="CENTER_RIGHT">
-                               <Button fx:id="addStudentButton" styleClass="add_student_btn" text="إضافة">
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin></Button>
-                           <HBox VBox.vgrow="ALWAYS">
-                               <VBox alignment="TOP_CENTER" spacing="10">
-                                   <Button styleClass="graphic_only_btn">
-                                       <graphic>
-                                           <FontIcon iconLiteral="fa-pencil" iconSize="24" />
-                                       </graphic>
-
-                                   </Button>
-                                   <Button styleClass="graphic_only_btn">
-                                       <graphic>
-                                           <FontIcon iconLiteral="fa-money" iconSize="24" />
-                                       </graphic>
-
-                                   </Button>
-                                   <Button styleClass="graphic_only_btn">
-                                       <graphic>
-                                           <FontIcon iconLiteral="fa-times" iconSize="24" />
-                                       </graphic>
-
-                                   </Button>
-                                   <Button styleClass="graphic_only_btn">
-                                       <graphic>
-                                           <FontIcon iconLiteral="fa-trash" iconSize="24" />
-                                       </graphic>
-
-                                   </Button>
-                               </VBox>
-                           <ScrollPane fitToHeight="true" fitToWidth="true" HBox.hgrow="ALWAYS">
-                               <content>
-
-                                   <TableView fx:id="studentTable" editable="true" tableMenuButtonVisible="true">
-                                       <columns>
-                                                <!-- ID Column -->
-                                                <TableColumn fx:id="idColumn" maxWidth="10000.0" prefWidth="50" text="المعرف" />
-
-                                                <!-- First Name Column -->
-                                                <TableColumn fx:id="fnameColumn" maxWidth="10000.0" prefWidth="100" text="الاسم الأول" />
-
-                                                <!-- Last Name Column -->
-                                                <TableColumn fx:id="lnameColumn" maxWidth="10000.0" prefWidth="100" text="الاسم الأخير" />
-
-                                                <!-- Code Column -->
-                                                <TableColumn fx:id="codeColumn" maxWidth="10000.0" prefWidth="50" text="الرمز" />
-
-                                                <!-- File Number Column -->
-                                                <TableColumn fx:id="fileNumberColumn" maxWidth="10000.0" prefWidth="100" text="رقم الملف" />
-
-                                                <!-- Birth Date Column -->
-                                                <TableColumn fx:id="birthDateColumn" maxWidth="10000.0" prefWidth="100" text="تاريخ الميلاد" />
-
-                                                <!-- Parent Name Column -->
-                                                <TableColumn fx:id="parentNameColumn" maxWidth="10000.0" prefWidth="100" text="اسم الوالدين" />
-
-                                                <!-- Address Column -->
-                                                <TableColumn fx:id="addressColumn" maxWidth="10000.0" prefWidth="100.0" text="العنوان" />
-
-                                                <!-- Phone Column -->
-                                                <TableColumn fx:id="phoneColumn" maxWidth="10000.0" prefWidth="100" text="رقم الهاتف" />
-
-                                                <!-- Parent Phone Column -->
-                                                <TableColumn fx:id="parentPhoneColumn" maxWidth="10000.0" prefWidth="150.0" text="رقم هاتف الوالدين" />
-
-                                                <!-- Level Column -->
-                                                <TableColumn fx:id="levelColumn" maxWidth="10000.0" prefWidth="100.0" text="المستوى" />
-
-                                                <!-- Remark Column -->
-                                                <TableColumn fx:id="remarkColumn" maxWidth="10000.0" prefWidth="100" text="ملاحظة" />
-
-                                                <!-- Student School Name Column -->
-                                                <TableColumn fx:id="studentSchoolNameColumn" maxWidth="10000.0" prefWidth="150" text="اسم المدرسة" />
-
-                                                <!-- Remise Column -->
-                                                <TableColumn fx:id="remiseColumn" maxWidth="10000.0" prefWidth="100.0" text="التخفيض" />
-
-                                                <!-- Exemption Column -->
-                                                <TableColumn fx:id="exemptionColumn" maxWidth="10000.0" text="الإعفاء" />
-
-                                                <!-- Gender Column -->
-                                                <TableColumn fx:id="genderColumn" maxWidth="10000.0" text="الجنس" />
-                                       </columns>
-                                   </TableView>
-                               </content>
-                           </ScrollPane>
-
-                           </HBox>
-                           </VBox>
-                       </content>
-                   </Tab>
-                   <!-- Tab for Unsubscribed Students -->
-                   <Tab text="غير مسجلين">
-                       <content>
-                           <AnchorPane>
-                               <Label text="غير مسجلين" />
-                           </AnchorPane>
-                       </content>
-                   </Tab>
-               </tabs>
-           </TabPane>
-       </VBox>
 
 
    </center>

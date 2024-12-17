@@ -4,28 +4,24 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import org.apache.log4j.Logger;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
 
-import java.util.Locale;
 import java.util.Objects;
-import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
 public class GeneralUtil {
@@ -76,6 +72,7 @@ public class GeneralUtil {
             scene.setCursor(Cursor.HAND);
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
             stage.getIcons().add(new Image(Objects.requireNonNull(GeneralUtil.class.getResourceAsStream("/com/marrok/schoolmanager/img/logo.png"))));
 
             // Check if the resource path is the login view; if so, don't set dimensions to maximize

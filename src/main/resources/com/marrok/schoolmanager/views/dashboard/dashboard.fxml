@@ -43,7 +43,7 @@
             </Button>
             <Button styleClass="graphic_only_btn">
                 <graphic>
-                    <FontIcon iconLiteral="fa-cogs" iconSize="24" />
+                    <FontIcon iconLiteral="fa-gear" iconSize="24" />
                 </graphic>
 
             </Button>

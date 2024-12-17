@@ -19,37 +19,42 @@
 }
 
 
+/* General button styling */
 .graphic_only_btn {
     -fx-background-radius: 15;
     -fx-border-radius: 15;
     -fx-alignment: CENTER;
-    -fx-effect: dropshadow(one-pass-box, rgba(0,0,0,0.2), 6, 0, 0, 2); /* Add a default background */
-    -fx-transition: all 0.3s ease; /* Smooth transition for hover/press */
+    -fx-effect: dropshadow(one-pass-box, rgba(0,0,0,0.2), 6, 0, 0, 2);
+    -fx-cursor: hand;
 }
-
 
 .graphic_only_btn:hover {
     -fx-effect: dropshadow(one-pass-box, rgba(0,0,0,0.4), 12, 0, 0, 6);
-    -fx-background-color: #f8f9fa; /* Subtle background change */
-    -fx-scale-x: 1.02; /* Slight scale-up effect */
-    -fx-scale-y: 1.02;
+    -fx-background-color: #f8f9fa;
 }
 
 .graphic_only_btn:pressed {
-    -fx-background-color: #e9ecef; /* Darker background for pressed effect */
+    -fx-background-color: #e9ecef;
     -fx-effect: dropshadow(one-pass-box, rgba(0,0,0,0.5), 8, 0, 0, 4);
-    -fx-scale-x: 0.98; /* Slight scale-down effect */
-    -fx-scale-y: 0.98;
 }
 
+/* Add Student Button */
 .add_student_btn {
-    -fx-background-color: #E7267A; /* Pink color from your preferred palette */
+    -fx-background-color: #E7267A; /* Pink color */
     -fx-text-fill: white;
-    -fx-font-size: 14px;
     -fx-effect: dropshadow(one-pass-box, rgba(0,0,0,0.2), 6, 0, 0, 2);
     -fx-font-family: "Cairo";
-    -fx-padding: 10 20;
     -fx-cursor: hand;
     -fx-border-radius: 5;
     -fx-background-radius: 5;
+}
+
+.add_student_btn:hover {
+    -fx-background-color: #D61A66; /* Slightly darker pink */
+    -fx-effect: dropshadow(one-pass-box, rgba(0,0,0,0.3), 8, 0, 0, 4);
+}
+
+.add_student_btn:pressed {
+    -fx-background-color: #BA1558; /* Even darker pink */
+    -fx-effect: dropshadow(one-pass-box, rgba(0,0,0,0.4), 10, 0, 0, 5);
 }

@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import javafx.stage.StageStyle;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -31,6 +32,7 @@ public class Main extends Application {
             Scene scene = new Scene(root);
            // scene.getStylesheets().add(Main.class.getResource("/com/marrok/schoolmanager/styles/style.css").toExternalForm());
             stage.setTitle("School Manager");
+            stage.initStyle(StageStyle.UNDECORATED);
             stage.setScene(scene);
             stage.setResizable(false);
 

@@ -5,31 +5,45 @@ import com.marrok.schoolmanager.utils.DatabaseConnection;
 import com.marrok.schoolmanager.utils.GeneralUtil;
 import com.marrok.schoolmanager.utils.database.StudentDbHelper;
 import com.marrok.schoolmanager.utils.database.UserDbHelper;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 
 public class StudentViewController {
+    public Button minimizeButton;
+    public Button maximizeButton;
+    public Button exitButton;
+
+    private boolean isMaximized = false;
     private static final Logger logger = LogManager.getLogger(StudentViewController.class);
     UserDbHelper userDbHelper=new UserDbHelper();
     StudentDbHelper studentDbHelper=new StudentDbHelper();
     private String username="";
     private int user_id=-1;
-    public Label current_user;
+    public Button current_user;
 
     public TableView<Student> studentTable;
 
@@ -61,7 +75,38 @@ public class StudentViewController {
         current_user.setText(username);
         loadData();
         initializeColumns();
+        setupBarbtn();
     }
+
+    private void setupBarbtn() {
+        // Exit Button Action
+        exitButton.setOnAction(event -> Platform.exit()); // Close the app
+
+        // Minimize Button Action
+        minimizeButton.setOnAction(event -> {
+            Stage stage = (Stage) minimizeButton.getScene().getWindow();
+            if (stage != null) {
+                stage.setIconified(true); // Minimize window
+            }
+        });
+
+        // Maximize/Restore Button Action
+        maximizeButton.setOnAction(event -> {
+            Stage stage = (Stage) maximizeButton.getScene().getWindow();
+            if (stage != null) {
+                if (isMaximized) {
+                    stage.setMaximized(false); // Restore to normal
+                    maximizeButton.setText("🗖");
+                } else {
+                    stage.setMaximized(true); // Maximize
+                    maximizeButton.setText("🗗");
+                }
+                isMaximized = !isMaximized;
+            }
+        });
+    }
+
+
     private void loadData() {
         logger.info("Loading Student data");
         try {
@@ -98,8 +143,26 @@ public class StudentViewController {
     }
 
 
+
+    public void add_Student(ActionEvent event) {
+        logger.info("Add_StudentController add_Student");
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/marrok/schoolmanager/views/student/add_student_view.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setTitle("إضافة تلميذ");
+            stage.setResizable(false);
+            stage.getIcons().add(new Image(this.getClass().getResourceAsStream("/com/marrok/schoolmanager/img/logo.png")));
+            stage.show();
+        }catch (IOException e) {
+            logger.error(e);
+        }
+    }
     public void goDashboard(ActionEvent event) {
         logger.info("Go dashboard");
         GeneralUtil.loadScene("/com/marrok/schoolmanager/views/dashboard/dashboard.fxml", event, true);
     }
+
 }

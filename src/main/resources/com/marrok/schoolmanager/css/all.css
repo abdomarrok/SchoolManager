@@ -1,11 +1,5 @@
-.root {
-    -fx-font-size: 14px;
-    -fx-background-color: #434343; /* Match the overall app theme */
-}
 
-.anchor-pane {
-    -fx-background-color: transparent; /* Ensure smooth transitions */
-}
+
 .app_bar {
     -fx-background-color: #434343;  /* Background color of the top bar */
     -fx-alignment: CENTER_LEFT;  /* Align the content to the left */
@@ -32,4 +26,20 @@
     -fx-background-radius: 10; /* Rounded corners */
     -fx-border-radius: 10; /* Match background radius */
 
+}
+
+.window_btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: whitesmoke;
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+    -fx-padding: 5 10;
+}
+
+.window_btn:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.2);
+}
+
+.window_btn:pressed {
+    -fx-background-color: rgba(200, 200, 200, 0.3);
 }
