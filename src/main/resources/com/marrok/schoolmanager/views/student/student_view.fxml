@@ -22,6 +22,14 @@
                     <Insets />
                 </HBox.margin>
             </HBox>
+              <Button onAction="#goDashboard" styleClass="graphic_only_btn">
+                  <tooltip>
+                      <Tooltip text="Go to Dashboard" />
+                  </tooltip>
+                  <graphic>
+                      <FontIcon iconLiteral="fa-home" iconSize="24" />
+                  </graphic>
+              </Button>
             <BorderPane.margin>
                 <Insets />
             </BorderPane.margin>
@@ -31,160 +39,122 @@
         </HBox>
     </top>
     <!-- Right Sidebar -->
-    <right>
-        <VBox alignment="TOP_CENTER" spacing="10" styleClass="app_right_bar">
-            <Button onAction="#goDashboard" styleClass="graphic_only_btn">
-                <tooltip>
-                    <Tooltip text="Go to Dashboard" />
-                </tooltip>
-                <graphic>
-                    <FontIcon iconLiteral="fa-home" iconSize="24" />
-                </graphic>
-            </Button>
 
-            <Button styleClass="graphic_only_btn">
-                <graphic>
-                    <FontIcon iconLiteral="fa-cogs" iconSize="24" />
-                </graphic>
-
-            </Button>
-        </VBox>
-    </right>
    <center>
-      <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" styleClass="border-pane-center" BorderPane.alignment="CENTER">
-        <items>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-                <children>
-                    <TabPane layoutX="742.0" layoutY="14.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                        <tabs>
-                            <Tab text="التلاميذ">
-                                <content>
-                                    <ScrollPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                        <content>
-                                            <TableView fx:id="studentTable" editable="true" tableMenuButtonVisible="true">
-                                                <columns>
-                                                    <!-- ID Column -->
-                                                    <TableColumn fx:id="idColumn" maxWidth="10000.0" prefWidth="50" text="المعرف" />
+       <VBox>
 
-                                                    <!-- First Name Column -->
-                                                    <TableColumn fx:id="fnameColumn" maxWidth="10000.0" prefWidth="100" text="الاسم الأول" />
+           <TabPane nodeOrientation="RIGHT_TO_LEFT" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+               <tabs>
+                   <!-- Tab for Students -->
+                   <Tab text="التلاميذ">
+                       <content>
 
-                                                    <!-- Last Name Column -->
-                                                    <TableColumn fx:id="lnameColumn" maxWidth="10000.0" prefWidth="100" text="الاسم الأخير" />
+                           <VBox alignment="CENTER_RIGHT">
+                               <Button fx:id="addStudentButton" styleClass="add_student_btn" text="إضافة">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin></Button>
+                           <HBox VBox.vgrow="ALWAYS">
+                               <VBox alignment="TOP_CENTER" spacing="10">
+                                   <Button styleClass="graphic_only_btn">
+                                       <graphic>
+                                           <FontIcon iconLiteral="fa-pencil" iconSize="24" />
+                                       </graphic>
 
-                                                    <!-- Code Column -->
-                                                    <TableColumn fx:id="codeColumn" maxWidth="10000.0" prefWidth="50" text="الرمز" />
+                                   </Button>
+                                   <Button styleClass="graphic_only_btn">
+                                       <graphic>
+                                           <FontIcon iconLiteral="fa-money" iconSize="24" />
+                                       </graphic>
 
-                                                    <!-- File Number Column -->
-                                                    <TableColumn fx:id="fileNumberColumn" maxWidth="10000.0" prefWidth="100" text="رقم الملف" />
+                                   </Button>
+                                   <Button styleClass="graphic_only_btn">
+                                       <graphic>
+                                           <FontIcon iconLiteral="fa-times" iconSize="24" />
+                                       </graphic>
 
-                                                    <!-- Birth Date Column -->
-                                                    <TableColumn fx:id="birthDateColumn" maxWidth="10000.0" prefWidth="100" text="تاريخ الميلاد" />
+                                   </Button>
+                                   <Button styleClass="graphic_only_btn">
+                                       <graphic>
+                                           <FontIcon iconLiteral="fa-trash" iconSize="24" />
+                                       </graphic>
 
-                                                    <!-- Parent Name Column -->
-                                                    <TableColumn fx:id="parentNameColumn" maxWidth="10000.0" prefWidth="100" text="اسم الوالدين" />
+                                   </Button>
+                               </VBox>
+                           <ScrollPane fitToHeight="true" fitToWidth="true" HBox.hgrow="ALWAYS">
+                               <content>
 
-                                                    <!-- Address Column -->
-                                                    <TableColumn fx:id="addressColumn" maxWidth="10000.0" prefWidth="100.0" text="العنوان" />
+                                   <TableView fx:id="studentTable" editable="true" tableMenuButtonVisible="true">
+                                       <columns>
+                                                <!-- ID Column -->
+                                                <TableColumn fx:id="idColumn" maxWidth="10000.0" prefWidth="50" text="المعرف" />
 
-                                                    <!-- Phone Column -->
-                                                    <TableColumn fx:id="phoneColumn" maxWidth="10000.0" prefWidth="100" text="رقم الهاتف" />
+                                                <!-- First Name Column -->
+                                                <TableColumn fx:id="fnameColumn" maxWidth="10000.0" prefWidth="100" text="الاسم الأول" />
 
-                                                    <!-- Parent Phone Column -->
-                                                    <TableColumn fx:id="parentPhoneColumn" maxWidth="10000.0" prefWidth="150.0" text="رقم هاتف الوالدين" />
+                                                <!-- Last Name Column -->
+                                                <TableColumn fx:id="lnameColumn" maxWidth="10000.0" prefWidth="100" text="الاسم الأخير" />
 
-                                                    <!-- Level Column -->
-                                                    <TableColumn fx:id="levelColumn" maxWidth="10000.0" prefWidth="100.0" text="المستوى" />
+                                                <!-- Code Column -->
+                                                <TableColumn fx:id="codeColumn" maxWidth="10000.0" prefWidth="50" text="الرمز" />
 
-                                                    <!-- Remark Column -->
-                                                    <TableColumn fx:id="remarkColumn" maxWidth="10000.0" prefWidth="100" text="ملاحظة" />
+                                                <!-- File Number Column -->
+                                                <TableColumn fx:id="fileNumberColumn" maxWidth="10000.0" prefWidth="100" text="رقم الملف" />
 
-                                                    <!-- Student School Name Column -->
-                                                    <TableColumn fx:id="studentSchoolNameColumn" maxWidth="10000.0" prefWidth="150" text="اسم المدرسة" />
+                                                <!-- Birth Date Column -->
+                                                <TableColumn fx:id="birthDateColumn" maxWidth="10000.0" prefWidth="100" text="تاريخ الميلاد" />
 
-                                                    <!-- Remise Column -->
-                                                    <TableColumn fx:id="remiseColumn" maxWidth="10000.0" prefWidth="100.0" text="التخفيض" />
+                                                <!-- Parent Name Column -->
+                                                <TableColumn fx:id="parentNameColumn" maxWidth="10000.0" prefWidth="100" text="اسم الوالدين" />
 
-                                                    <!-- Exemption Column -->
-                                                    <TableColumn fx:id="exemptionColumn" maxWidth="10000.0" text="الإعفاء" />
+                                                <!-- Address Column -->
+                                                <TableColumn fx:id="addressColumn" maxWidth="10000.0" prefWidth="100.0" text="العنوان" />
 
-                                                    <!-- Gender Column -->
-                                                    <TableColumn fx:id="genderColumn" maxWidth="10000.0" text="الجنس" />
-                                                </columns>
-                                            </TableView>
-                                        </content>
-                                    </ScrollPane>
-                                </content>
-                            </Tab>
-                        <Tab text="المشطوبين">
-                        <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                              <Label text="chetep" />
-                          </AnchorPane>
-                        </content>
-                      </Tab>
-                        <Tab text="القائمة السوداء">
-                            <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                    <Label text="black list" />
-                                </AnchorPane>
-                            </content>
-                        </Tab>
-                        <Tab text="حالة التلميذ">
-                            <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                    <Label text="status eleve" />
-                                </AnchorPane>
-                            </content>
-                        </Tab>
-                        <Tab text="التامين الاجتماعي">
-                            <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                    <Label text="assurance" />
-                                </AnchorPane>
-                            </content>
-                        </Tab>
-                        <Tab text="غير مسجلين">
-                            <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                    <Label text="unsubscribed" />
-                                </AnchorPane>
-                            </content>
-                        </Tab>
-                    </tabs>
-                  </TabPane>
-               </children>
-            </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-               <children>
-                  <TabPane nodeOrientation="RIGHT_TO_LEFT" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                    <tabs>
-                      <Tab text="مدفوعات التلميذ">
-                          <content>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                  <Label text="payment" />
-                              </AnchorPane>
-                          </content>
-                      </Tab>
-                      <Tab text="الافواج">
-                          <content>
-                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                  <Label text="groups" />
-                              </AnchorPane>
-                          </content>
-                      </Tab>
-                        <Tab text="ملف التلميذ">
-                            <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                                    <Label text="dossier" />
-                                </AnchorPane>
-                            </content>
-                        </Tab>
-                    </tabs>
-                  </TabPane>
-               </children></AnchorPane>
-        </items>
-      </SplitPane>
+                                                <!-- Phone Column -->
+                                                <TableColumn fx:id="phoneColumn" maxWidth="10000.0" prefWidth="100" text="رقم الهاتف" />
+
+                                                <!-- Parent Phone Column -->
+                                                <TableColumn fx:id="parentPhoneColumn" maxWidth="10000.0" prefWidth="150.0" text="رقم هاتف الوالدين" />
+
+                                                <!-- Level Column -->
+                                                <TableColumn fx:id="levelColumn" maxWidth="10000.0" prefWidth="100.0" text="المستوى" />
+
+                                                <!-- Remark Column -->
+                                                <TableColumn fx:id="remarkColumn" maxWidth="10000.0" prefWidth="100" text="ملاحظة" />
+
+                                                <!-- Student School Name Column -->
+                                                <TableColumn fx:id="studentSchoolNameColumn" maxWidth="10000.0" prefWidth="150" text="اسم المدرسة" />
+
+                                                <!-- Remise Column -->
+                                                <TableColumn fx:id="remiseColumn" maxWidth="10000.0" prefWidth="100.0" text="التخفيض" />
+
+                                                <!-- Exemption Column -->
+                                                <TableColumn fx:id="exemptionColumn" maxWidth="10000.0" text="الإعفاء" />
+
+                                                <!-- Gender Column -->
+                                                <TableColumn fx:id="genderColumn" maxWidth="10000.0" text="الجنس" />
+                                       </columns>
+                                   </TableView>
+                               </content>
+                           </ScrollPane>
+
+                           </HBox>
+                           </VBox>
+                       </content>
+                   </Tab>
+                   <!-- Tab for Unsubscribed Students -->
+                   <Tab text="غير مسجلين">
+                       <content>
+                           <AnchorPane>
+                               <Label text="غير مسجلين" />
+                           </AnchorPane>
+                       </content>
+                   </Tab>
+               </tabs>
+           </TabPane>
+       </VBox>
+
+
    </center>
     <stylesheets>
         <URL value="@../../css/tableview.css" />
