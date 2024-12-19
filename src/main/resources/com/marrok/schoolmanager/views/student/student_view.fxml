@@ -3,6 +3,7 @@
 <?import java.net.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import org.kordamp.ikonli.javafx.*?>
 
@@ -11,8 +12,20 @@
     <top>
         <HBox alignment="CENTER_LEFT" spacing="10" styleClass="app_bar">
             <!-- App Name -->
-            <Label  text="School Manager" />
-
+            <HBox>
+                <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../img/logo.png" />
+                    </image>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+                </ImageView>
+                <Label text="School Manager" />
+            <padding>
+               <Insets left="10.0" top="10.0" />
+            </padding>
+            </HBox>
             <!-- Right Aligned Buttons: Current User, Dashboard -->
             <HBox alignment="CENTER_RIGHT" spacing="10" HBox.hgrow="ALWAYS">
                 <Button fx:id="current_user" styleClass="window_btn" text="Current User">

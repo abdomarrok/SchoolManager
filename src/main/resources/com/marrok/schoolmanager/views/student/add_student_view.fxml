@@ -1,14 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.marrok.schoolmanager.controllers.student.AddStudentController"
-            prefHeight="400.0" prefWidth="600.0">
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefWidth="700" prefHeight="550"
+            fx:controller="com.marrok.schoolmanager.controllers.student.AddStudentController">
+    <GridPane alignment="TOP_CENTER" hgap="20" vgap="15" layoutX="10" layoutY="10">
+        <columnConstraints>
+            <ColumnConstraints prefWidth="200"/>
+            <ColumnConstraints prefWidth="200"/>
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="20"/>
+        </rowConstraints>
 
+        <!-- Row 1: Surname and Name -->
+        <Label text="اللقب :" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+        <TextField GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <Label text="الاسم :" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+        <TextField GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+
+        <!-- Row 2: Code and File -->
+        <Label text="الرمز :" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+        <HBox GridPane.rowIndex="1" GridPane.columnIndex="0">
+            <Button prefWidth="30"/>
+            <TextField editable="false" text="777448350928" prefWidth="150"/>
+        </HBox>
+        <Label text="الملف :" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+        <HBox GridPane.rowIndex="1" GridPane.columnIndex="2">
+            <Button  prefWidth="30"/>
+            <TextField editable="false" text="0001" prefWidth="150"/>
+        </HBox>
+
+        <!-- Row 3: Place and Birthdate -->
+        <Label text="المكان :" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+        <TextField GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <Label text="الازياد :" GridPane.rowIndex="2" GridPane.columnIndex="3"/>
+        <DatePicker GridPane.rowIndex="2" GridPane.columnIndex="2"/>
+
+        <!-- Row 4: Register Date -->
+        <Label text="تسجيل :" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+        <DatePicker GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+
+        <!-- Row 5: Parent and Phone -->
+        <Label text="الولي :" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+        <TextField GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+        <Label text="الهاتف :" GridPane.rowIndex="4" GridPane.columnIndex="3"/>
+        <TextField GridPane.rowIndex="4" GridPane.columnIndex="2"/>
+
+        <!-- Row 6: Parent Phone and Exemption -->
+        <Label text="هاتف الولي :" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+        <TextField GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+        <Label text="الإعفاء :" GridPane.rowIndex="5" GridPane.columnIndex="3"/>
+        <CheckBox text="لا" GridPane.rowIndex="5" GridPane.columnIndex="2"/>
+
+        <!-- Row 7: School and Level -->
+        <Label text="المؤسسة التعليمية :" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+        <ComboBox GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+        <Label text="المستوى :" GridPane.rowIndex="6" GridPane.columnIndex="3"/>
+        <ComboBox GridPane.rowIndex="6" GridPane.columnIndex="2"/>
+
+        <!-- Row 8: Notes -->
+        <Label text="الملاحظة :" GridPane.rowIndex="7" GridPane.columnIndex="1"/>
+        <TextArea GridPane.rowIndex="7" GridPane.columnIndex="0" GridPane.columnSpan="3" prefRowCount="3"/>
+    </GridPane>
+<!-- style="-fx-background-color: #D32F2F; -fx-text-fill: white;"-->
+    <!-- Buttons Section -->
+    <HBox alignment="CENTER" spacing="15" layoutX="50" layoutY="480">
+        <Button fx:id="cencel_btn" text="إلغاء" prefWidth="100" onAction="#cencel"/>
+        <Button text="[F3] إضافة" prefWidth="100"/>
+        <Button text="[F2] تأكيد + طباعة"  prefWidth="150"/>
+        <Button text="[F1] تأكيد" prefWidth="100"/>
+    </HBox>
 </AnchorPane>
